@@ -1,0 +1,19 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/daltonfontes/Pro-Vet.git"
+  },
+  "author": "Dalton Fontes, Andrews Carlos, Leonardo Reis, Alexandre Gomes",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/daltonfontes/Pro-Vet/issues"
+  },
+  "homepage": "https://github.com/daltonfontes/Pro-Vet#readme"
+}
