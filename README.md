@@ -41,8 +41,8 @@ Qualquer erro que ocorra pode ser encontrado no console.
 
 ## Dependências
 
-Utilize o comando ```shell
- yarn``` ou ```shell
+Utilize o comando ```
+ yarn``` ou ```
  npm``` para fazer o download de todas as dependências necessárias.
 
 ## Configuração
