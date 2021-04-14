@@ -28,6 +28,23 @@ git clone https://github.com/daltonfontes/Pro-Vet
 ```
 ## Construção
 
-```shell
+Para construir o projeto, você pode executar o comando abaixo:
 
+```shell
+yarn start
 ```
+## Configuração
+
+Para executar o projeto, é necessário utilizar o Eclipse, para que o mesmo identifique as dependências necessárias para a execução no repositório.
+
+## Testes
+
+Para rodar os testes, utilize o comando abaixo:
+
+```shell
+yarn test
+```
+
+## Lincença
+
+[MIT License](https://github.com/daltonfontes/Pro-Vet/blob/main/LICENSE)
