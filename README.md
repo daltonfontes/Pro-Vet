@@ -33,6 +33,18 @@ Para construir o projeto, você pode executar o comando abaixo:
 ```shell
 yarn start
 ```
+Este comando executa o projeto em modo de desenvolvimento.
+Entre em http://localhost:3000 para visualizar em seu navegador.
+
+A página irá atualizar automaticamente ao salvar alterações.
+Qualquer erro que ocorra pode ser encontrado no console.
+
+## Dependências
+
+Utilize o comando ```shell
+ yarn``` ou ```shell
+ npm``` para fazer o download de todas as dependências necessárias.
+
 ## Configuração
 
 Para executar o projeto, é necessário utilizar o Visual Studio Code, para que o mesmo identifique as dependências necessárias para a execução no repositório.
