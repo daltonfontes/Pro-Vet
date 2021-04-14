@@ -45,6 +45,6 @@ Para rodar os testes, utilize o comando abaixo:
 yarn test
 ```
 
-## Lincença
+## Licença
 
 [MIT License](https://github.com/daltonfontes/Pro-Vet/blob/main/LICENSE)
