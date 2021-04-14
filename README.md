@@ -35,7 +35,7 @@ yarn start
 ```
 ## Configuração
 
-Para executar o projeto, é necessário utilizar o Eclipse, para que o mesmo identifique as dependências necessárias para a execução no repositório.
+Para executar o projeto, é necessário utilizar o Visual Studio Code, para que o mesmo identifique as dependências necessárias para a execução no repositório.
 
 ## Testes
 
