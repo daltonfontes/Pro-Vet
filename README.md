@@ -4,11 +4,11 @@ Esse projeto tem como objetivo auxiliar o hospital veterinário de Resende.
 
 ## Tecnologias
 
-- Nodejs
-- MySql
-- ReactJS
-- Axios
-- Git
+- [Nodejs](https://nodejs.org/en/)
+- [MySql](https://www.mysql.com/)
+- [ReactJS](https://pt-br.reactjs.org/)
+- [Axios](https://axios-http.com/)
+- [Git](https://git-scm.com/)
 
 ## Começando
 
