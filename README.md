@@ -34,9 +34,11 @@ Para construir o projeto, você pode executar o comando abaixo:
 yarn start
 ```
 Este comando executa o projeto em modo de desenvolvimento.
+
 Entre em http://localhost:3000 para visualizar em seu navegador.
 
 A página irá atualizar automaticamente ao salvar alterações.
+
 Qualquer erro que ocorra pode ser encontrado no console.
 
 ## Dependências
