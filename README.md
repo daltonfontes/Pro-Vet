@@ -58,7 +58,11 @@ Para rodar os testes, utilize o comando abaixo:
 ```shell
 yarn test
 ```
-
+## Contribuidores
+- Alexandre Gomes
+- Andrews Carlos
+- Dalton Fontes
+- Leonardo Reis
 ## Licença
 
 [MIT License](https://github.com/daltonfontes/Pro-Vet/blob/main/LICENSE)
