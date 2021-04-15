@@ -4,9 +4,3 @@ language: node_js
 
 node_js:
   - node
-
-script:
-  - npm test
-
-install:
-  - npm ci
