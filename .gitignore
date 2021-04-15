@@ -1,3 +1,8 @@
 .vscode/settings.json
 frontend/README.md
 backend/src/config/database.js
+package-lock.json
+package.json
+node_modules/.package-lock.json
+node_modules/.bin/ci
+node_modules/ci/ci.js
