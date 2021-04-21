@@ -1,10 +1,9 @@
+import Routes from "./routes";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-  <h1>ProVet - Cuidando do seu amigo</h1>
-      </header>
+      <Routes />
     </div>
   );
 }
