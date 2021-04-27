@@ -12,7 +12,7 @@ function Home() {
   return (
     <Main>
       <FormSignIn>
-        <Title color="#276678">Entre no ProVet</Title>
+        <Title color="var(--cyan-500)">Entre no ProVet</Title>
         <InputEmail
         placeholder="Digite um email" 
         aria-required="true"
@@ -28,7 +28,7 @@ function Home() {
       </FormSignIn>
       <FormSignUp>
         <Logo></Logo>
-        <Title color="white">ProVet</Title>
+        <Title color="var(--white)">ProVet</Title>
         <SubTitle>Primeira vez com a gente? Crie uma conta gratuita</SubTitle>
         <Btncreate type="button" as="a" href="/cadastro">Criar Conta</Btncreate>
       </FormSignUp>

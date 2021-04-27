@@ -12,7 +12,7 @@ export const Btncreate = styled(Button)`
     display:flex;
     height:70px;
     width:350px;
-    background: #1687A7;
+    background: var(--cyan-800);
     border:none;
     align-items:center;
     display:flex;
@@ -34,7 +34,7 @@ export const Btnlogin = styled(Button)`
     display:flex;
     height:70px;
     width:350px;
-    background: #276678;
+    background: var(--cyan-500);
     border:none;
     align-items:center;
     display:flex;
