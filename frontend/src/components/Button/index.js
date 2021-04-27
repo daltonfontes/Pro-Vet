@@ -22,6 +22,11 @@ export const Btncreate = styled(Button)`
     font-size:1.5em;
     font-family: 'Antic Slab', serif;
     text-decoration:none;
+    transition: filter .2s;
+
+    &:hover {
+            filter: brightness(0.95);
+        }
 `;
 
 export const Btnlogin = styled(Button)`
@@ -34,11 +39,15 @@ export const Btnlogin = styled(Button)`
     align-items:center;
     display:flex;
     justify-content:space-evenly;
-    
     color: white;
     font-size:1.5em;
     font-family: 'Antic Slab', serif;
     text-decoration:none;
+    transition: filter .2s;
+
+        &:hover {
+            filter: brightness(0.95);
+        }
 
 `;
 

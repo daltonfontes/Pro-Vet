@@ -17,19 +17,20 @@ function Home() {
         placeholder="Digite um email" 
         aria-required="true"
         required 
-        autoFocus />
+        autoFocus
+        />
 
         <InputPass placeholder="Digite uma senha" 
         aria-required="true" 
         required />
 
-        <Btnlogin as="a" href="/dashboard">Entrar</Btnlogin>
+        <Btnlogin type="button" as="a" href="/">Entrar</Btnlogin>
       </FormSignIn>
       <FormSignUp>
         <Logo></Logo>
         <Title color="white">ProVet</Title>
         <SubTitle>Primeira vez com a gente? Crie uma conta gratuita</SubTitle>
-        <Btncreate as="a" href="/cadastro">Criar Conta</Btncreate>
+        <Btncreate type="button" as="a" href="/cadastro">Criar Conta</Btncreate>
       </FormSignUp>
     </Main>  
   );
