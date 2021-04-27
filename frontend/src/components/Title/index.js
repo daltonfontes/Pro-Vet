@@ -1,13 +1,12 @@
 import styled from 'styled-components';
 
 const Title = styled.h1`
-    font-family: 'Antic Slab', serif;
-    font-size:40px;
+    font-size:${props => props.size};
     color:${props => props.color};
 `;
-export const SubTitle = styled(Title).attrs({ as: 'h2'})`
+export const SubTitle = styled(Title).attrs({ as: 'span'})`
 
-    font-size:20px;
+    font-size:1.2rem;
     color:white;
     margin-bottom:50px;
 

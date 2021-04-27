@@ -2,7 +2,7 @@ import { createGlobalStyle } from 'styled-components';
 
 const Base = createGlobalStyle`
 
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@500&display=swap');
+
     *{
         margin: 0;
         padding: 0;
@@ -38,10 +38,26 @@ const Base = createGlobalStyle`
         font-size: 87.5%;
     }
 }
-
-    html, body {
+    body {
         background-color: var(--white);
-        font-family: 'Roboto Mono', monospace;
+    }
+
+    body, textarea, input, button{
+        font: 500 1rem Antic Slab, serif;
+    }
+    h1
+    {
+        font-size: 2rem;
+    }
+
+    h2
+    {
+        font-size: 1.5rem;
+    }
+
+    button
+    {
+        cursor: pointer;
     }
 `;
 
