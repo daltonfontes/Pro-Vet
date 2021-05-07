@@ -4,7 +4,7 @@ Esse projeto tem como objetivo auxiliar o hospital veterinário de Resende.
 
 ## Tecnologias
 
-- [Nodejs][<img src="https://img.icons8.com/color/72/nodejs.png"/>](https://nodejs.org/en/)
+- [Nodejs](https://nodejs.org/en/)
 - [MySql](https://www.mysql.com/)
 - [ReactJS](https://pt-br.reactjs.org/)
 - [Axios](https://axios-http.com/)
