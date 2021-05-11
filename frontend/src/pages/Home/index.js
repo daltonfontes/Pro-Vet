@@ -24,7 +24,7 @@ function Home() {
         aria-required="true" 
         required />
 
-        <Btnlogin type="button" as="a" href="/">Entrar</Btnlogin>
+        <Btnlogin type="button" as="a" href="/dashboard">Entrar</Btnlogin>
       </FormSignIn>
       <FormSignUp>
         <Logo></Logo>
