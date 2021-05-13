@@ -17,6 +17,7 @@ const Base = createGlobalStyle`
     --cyan-800: #1687A7;
     --pear: #C9DC23;
     --blue-800: #082A38;
+    --black: #000000;
 }
 
 @media (max-width: 1080px) 

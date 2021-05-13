@@ -28,28 +28,31 @@ function Dashboard() {
     </SideBar>
       <Boxbar>
         <Card>
-          <h1 className="card-number">40</h1>
+          <h1 className="card-number">0</h1>
           <hr className="card-line"></hr>
           <h1 className="card-text">Total Pacientes</h1>
         </Card>
         <Card>
-          <h1 className="card-number">10</h1>
+          <h1 className="card-number">0</h1>
           <hr className="card-line"></hr>
           <h1 className="card-text">Animais Internados</h1>
         </Card>
         <Card>
-          <h1 className="card-number">20</h1>
+          <h1 className="card-number">0</h1>
           <hr className="card-line"></hr>
           <h1 className="card-text">Animais Atendidos</h1>
         </Card>
         <Card>
-          <h1 className="card-number">5</h1>
+          <h1 className="card-number">0</h1>
           <hr className="card-line"></hr>
           <h1 className="card-text">Banho&Tosa</h1>
         </Card>
       </Boxbar>
       <hr className="line-vertical"></hr>
-    <Agenda></Agenda>  
+    <Agenda>
+      <h2 className="agenda-text">Agenda</h2>
+      <hr className="agenda-line"></hr>
+    </Agenda>  
     </Wrapper>
   );
 }
@@ -162,6 +165,20 @@ border-radius:15px;
 margin-left:10vh;
 width:500px;
 height:640px;
+
+h2.agenda-text {
+  color:var(--black);
+  font-size:1.5rem;
+  font-weight: 700;
+  margin-top:25px;
+  margin-left:25px;
+}
+
+hr.agenda-line {
+  border:1px solid var(--cyan-800);
+  width:210px;
+  margin-top:10px;
+}
 `;
 
 export default Dashboard;
