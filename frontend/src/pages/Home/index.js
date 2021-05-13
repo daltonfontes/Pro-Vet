@@ -29,7 +29,7 @@ function Home() {
       <FormSignUp>
         <Logo></Logo>
         <Title color="var(--white)" size="2.5rem">ProVet</Title>
-        <SubTitle>Primeira vez com a gente? Crie uma conta gratuitA</SubTitle>
+        <SubTitle>Primeira vez com a gente? Crie uma conta gratuita</SubTitle>
         <Btncreate type="button" as="a" href="/cadastro">Criar Conta</Btncreate>
       </FormSignUp>
     </Main>  
