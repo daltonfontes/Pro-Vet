@@ -25,7 +25,7 @@ function Dashboard() {
 
     </SideBar>
     <Logo className='logo-center' loading='lazy'></Logo>
-    <Title>Seja Bem Vindo !</Title>
+    <Title>Seja Bem Vindo!</Title>
     </Wrapper>
   );
 }
