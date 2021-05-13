@@ -21,8 +21,6 @@ function Dashboard() {
 
       <a className='btn-agenda' href='/agenda'role='button'><img src="https://streamline-production-bucket.cellar-c2.services.clever-cloud.com/icons/low/subc_mRu4pQJ4v6Vi2aEP2WvhjaSz/book-close-1-9xdk26nwc3uq8pk0gfuca.png" alt=""></img></a>
 
-      <a className='btn-configuracao' href='/configuracao'role='button'><img src="https://streamline-production-bucket.cellar-c2.services.clever-cloud.com/icons/low/subc_mRu4pQJ4v6vH2aEbmoeLjaB3/cog-2js0e56s6e2xh7lzdzjja.png" alt=""></img></a>
-
       <a className='btn-sair' href='/'role='button'><img src="https://streamline-production-bucket.cellar-c2.services.clever-cloud.com/icons/low/subc_mRu4pQJ4vpnJ2aEbmoJ4v9V7/login-2-hfrcvvuxy7vc0uuilv10d5.png" alt=""></img></a>
 
     </SideBar>
