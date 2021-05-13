@@ -1,5 +1,4 @@
-.vscode/settings.json
-frontend/README.md
-backend/src/config/database.js
-./backend/node_modules
-backend/node_modules
+*node_modules*
+**node_modules**
+/home/andrews/projects/Pro-Vet/frontend/node_modules
+frontend/
