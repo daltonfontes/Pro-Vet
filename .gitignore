@@ -2,3 +2,4 @@
 frontend/README.md
 backend/src/config/database.js
 .gitignore
+./backend/node_modules
