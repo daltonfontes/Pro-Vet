@@ -12,9 +12,11 @@ const Base = createGlobalStyle`
 
     :root 
 {
-    --white: #FFF; 
+    --white: #E9EFF1; 
     --cyan-500: #276678;
     --cyan-800: #1687A7;
+    --pear: #C9DC23;
+    --blue-800: #082A38;
 }
 
 @media (max-width: 1080px) 
