@@ -13,18 +13,19 @@ function Dashboard() {
     <SideBar>
       <Logo className='logo-nav' loading='lazy'></Logo>
 
+      <a className='btn-agenda' href='/'role='button'><img src="https://streamline-production-bucket.cellar-c2.services.clever-cloud.com/icons/low/subc_mRu4pQJ4vF502aEbmo9ULirm/house-4-y5gv0gw6vmi6vaedsuj7.png" alt=""></img></a>
+      <span>Inicio</span>
       <a className='btn-animais' href='/animais'role='button'><img src="https://streamline-production-bucket.cellar-c2.services.clever-cloud.com/icons/low/subc_mRu4pQJ4vVww2aEwAZJttI75/pets-paw-sprwijrjtsvs80j51amsg.png" alt=""></img></a>
-
+      <span>Inicio</span>
       <a className='btn-internacao' href='/internacao'role='button'><img src="https://streamline-production-bucket.cellar-c2.services.clever-cloud.com/icons/low/subc_mRu4pQJ4vVww2aEwAZJttI75/pets-paw-hospital-imv1pxpqu1qrzngn6e8pzk.png" alt=""></img></a>
-
+      <span>Inicio</span>
       <a className='btn-banho-tosa' href='/banho-tosa'role='button'><img src="https://streamline-production-bucket.cellar-c2.services.clever-cloud.com/icons/low/subc_mRu4pQJ4vVww2aEwAZJttI75/pets-paw-soap-d4wexkdb2ggtidzffs8wom.png" alt=""></img></a>
-
+      <span>Inicio</span>
       <a className='btn-agenda' href='/agenda'role='button'><img src="https://streamline-production-bucket.cellar-c2.services.clever-cloud.com/icons/low/subc_mRu4pQJ4v6Vi2aEP2WvhjaSz/book-close-1-9xdk26nwc3uq8pk0gfuca.png" alt=""></img></a>
-
+      <span>Inicio</span>
       <a className='btn-sair' href='/'role='button'><img src="https://streamline-production-bucket.cellar-c2.services.clever-cloud.com/icons/low/subc_mRu4pQJ4vpnJ2aEbmoJ4v9V7/login-2-hfrcvvuxy7vc0uuilv10d5.png" alt=""></img></a>
 
     </SideBar>
-    <Logo className='logo-center' loading='lazy'></Logo>
     <Title>Seja Bem Vindo !</Title>
     </Wrapper>
   );
@@ -39,9 +40,6 @@ linear-gradient(180deg, rgba(22, 135, 167, 0.79) 0%, rgba(22, 135, 167, 0.3) 100
 url(${bg}), var(--cyan-800);
 background-size:cover;
 
-img.logo-center {
-  margin-left:75vh;
-}
 
 h1 {
   padding-top: 435px;
