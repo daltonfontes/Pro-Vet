@@ -18,4 +18,4 @@ routes.post('/pessoas', AnimaisController.create)
 routes.put('/pessoas/:id', AnimaisController.update)
 routes.delete('/pessoas/:id', AnimaisController.destroy)
 
-module.exports = routes
+module.exports = routes;
