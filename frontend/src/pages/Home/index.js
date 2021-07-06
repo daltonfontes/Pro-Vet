@@ -1,38 +1,71 @@
 import React from 'react';
+import Container from '@material-ui/core/Container';
+import TextField from '@material-ui/core/TextField';
+import Checkbox from '@material-ui/core/Checkbox';
+import { FormControlLabel, Typography } from '@material-ui/core';
+import { makeStyles } from '@material-ui/core/styles';
+import CssBaseline from '@material-ui/core/CssBaseline';
 
-import { Btncreate, Btnlogin } from '../../components/Button';
-import { Main } from '../../components/Main';
-import { FormSignIn, FormSignUp } from "../../components/Form";
-import Title, { SubTitle } from '../../components/Title';
-import { Logo } from '../../components/Logo';
-import { InputEmail, InputPass } from '../../components/Inputs';
 
+import { Btnlogin } from '../../components/Button';
+import { BoxStyled } from "../../components/Form";
 
 function Home() {
+  const useStyles = makeStyles((theme) => ({
+    form: {
+      marginBottom: theme.spacing(2),
+    },
+
+    paper: {
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
+    },
+
+    font: {
+      fontFamily: "'Patua One', cursive",
+      marginBottom: theme.spacing(5),
+    }
+  }));
+
+  const classes = useStyles();
   return (
-    <Main>
-      <FormSignIn>
-        <Title color="var(--cyan-500)">Entre no ProVet</Title>
-        <InputEmail
-        placeholder="Digite um email" 
-        aria-required="true"
-        required 
-        autoFocus
-        />
+    <Container component="main" maxWidth="xs">
+      <CssBaseline />
+      <div className={classes.paper}>
+        <BoxStyled>
+          <Typography className={classes.font} component="h1" variant="h4" align="center">
+            Login
+          </Typography>
+          <TextField className={classes.form}
+            variant="outlined"
+            type="email"
+            placeholder="Digite um e-mail valido"
+            aria-required="true"
+            label="E-mail"
+            autoComplete="email"
+            required
+            fullWidth
+            autoFocus
+          />
+          <TextField
+            variant="outlined"
+            type="password"
+            placeholder="Digite uma senha"
+            aria-required="true"
+            label="Senha"
+            required
+            fullWidth
+            autoFocus />
 
-        <InputPass placeholder="Digite uma senha" 
-        aria-required="true" 
-        required />
-
-        <Btnlogin type="button" as="a" href="/dashboard">Entrar</Btnlogin>
-      </FormSignIn>
-      <FormSignUp>
-        <Logo></Logo>
-        <Title color="var(--white)" size="2.5rem">ProVet</Title>
-        <SubTitle>Primeira vez com a gente? Crie uma conta gratuita</SubTitle>
-        <Btncreate type="button" as="a" href="/cadastro">Criar Conta</Btncreate>
-      </FormSignUp>
-    </Main>  
+          <FormControlLabel
+            control={<Checkbox value="remember" color="primary" />}
+            label="Lembrar senha"
+          />
+          <Btnlogin type="button" as="a" href="/dashboard">Entrar</Btnlogin>
+        </BoxStyled>
+        /</div>
+    </Container>
   );
 }
 

@@ -1,49 +1,22 @@
 import styled from "styled-components";
-
-
-export const Button = styled.button`
-    border-radius: 20px;
-    width: ${props => props.width};
-    height: ${props => props.height};
-`;
-
-export const Btncreate = styled(Button)`
-    
-    display:flex;
-    height:70px;
-    width:350px;
-    background: var(--cyan-800);
-    border:none;
-    align-items:center;
-    display:flex;
-    justify-content:space-evenly;
-    
-    color: white;
-    font-size:1.5em;
-    font-family: 'Antic Slab', serif;
-    text-decoration:none;
-    transition: filter .2s;
-
-    &:hover {
-            filter: brightness(0.95);
-        }
-`;
+import Button from '@material-ui/core/Button';
 
 export const Btnlogin = styled(Button)`
 
     display:flex;
     height:70px;
     width:350px;
-    background: var(--cyan-500);
+    background: var(--yellow);
     border:none;
     align-items:center;
     display:flex;
     justify-content:space-evenly;
-    color: white;
+    color: var(--black-50);
     font-size:1.5em;
-    font-family: 'Antic Slab', serif;
+    font-family: 'Patua One', cursive;;
     text-decoration:none;
     transition: filter .2s;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.4);
 
         &:hover {
             filter: brightness(0.95);
