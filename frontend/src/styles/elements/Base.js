@@ -12,12 +12,11 @@ const Base = createGlobalStyle`
 
     :root 
 {
-    --white: #E9EFF1; 
-    --cyan-500: #276678;
-    --cyan-800: #1687A7;
+    --white: #E9EFF1;
+    --white-50:#BDD2D9;
     --yellow: #D4D11E;
-    --blue-800: #082A38;
-    --black: #000000;
+    --blue-500: #226677;
+    --blue-800:#042938;
     --black-50:#42484A;
 }
 

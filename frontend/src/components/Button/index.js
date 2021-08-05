@@ -4,7 +4,7 @@ import Button from '@material-ui/core/Button';
 export const Btnlogin = styled(Button)`
 
     display:flex;
-    height:70px;
+    height:55px;
     width:350px;
     background: var(--yellow);
     border:none;

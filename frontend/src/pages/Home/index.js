@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Container from '@material-ui/core/Container';
 import TextField from '@material-ui/core/TextField';
 import Checkbox from '@material-ui/core/Checkbox';
@@ -29,6 +29,8 @@ function Home() {
   }));
 
   const classes = useStyles();
+  const [username, setUserName] = useState();
+  const [password, setPassword] = useState();
   return (
     <Container component="main" maxWidth="xs">
       <CssBaseline />
@@ -38,17 +40,19 @@ function Home() {
             Login
           </Typography>
           <TextField className={classes.form}
+            onChange={e => setUserName(e.target.value)}
             variant="outlined"
-            type="email"
-            placeholder="Digite um e-mail valido"
+            type="text"
+            placeholder="Digite um usuario valido"
             aria-required="true"
-            label="E-mail"
-            autoComplete="email"
+            label="Nome do usuario"
+            autoComplete="text"
             required
             fullWidth
             autoFocus
           />
           <TextField
+            onChange={e => setPassword(e.target.value)}
             variant="outlined"
             type="password"
             placeholder="Digite uma senha"
@@ -62,7 +66,7 @@ function Home() {
             control={<Checkbox value="remember" color="primary" />}
             label="Lembrar senha"
           />
-          <Btnlogin type="button" as="a" href="/dashboard">Entrar</Btnlogin>
+          <Btnlogin type="submit" as="a" href="/dashboard">Entrar</Btnlogin>
         </BoxStyled>
         /</div>
     </Container>
