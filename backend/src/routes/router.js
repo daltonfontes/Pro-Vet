@@ -1,21 +1,27 @@
-const routes = require('express').Router()
+const express = require('express')
+const routes = express.Router()
 
 
-const PessoasController = require('../controllers/pessoas')
-const AnimaisController = require('../controllers/animais')
+const PessoasService = require('../services/Pessoas.service')
+const AnimaisService = require('../services/Animais.service')
+const UserService = require('../services/AuthUser.service')
 
-//        pessoas
-routes.get('/pessoas', PessoasController.index)
-routes.get('/pessoas/:id', PessoasController.show)
-routes.post('/pessoas', PessoasController.create)
-routes.put('/pessoas/:id', PessoasController.update)
-routes.delete('/pessoas/:id', PessoasController.destroy)
+//    rotas people    pessoas
+routes.get('/pessoas', PessoasService.index)
+routes.get('/pessoas/:id', PessoasService.show)
+routes.post('/pessoas',PessoasService.create)
+routes.put('/pessoas/:id', PessoasService.update)
+routes.delete('/pessoas/:id', PessoasService.destroy)
 
-//       animais
-routes.get('/pessoas', AnimaisController.index)
-routes.get('/pessoas/:id', AnimaisController.show)
-routes.post('/pessoas', AnimaisController.create)
-routes.put('/pessoas/:id', AnimaisController.update)
-routes.delete('/pessoas/:id', AnimaisController.destroy)
+//   rota animals    animais
+routes.get('/pessoas', AnimaisService.index)
+routes.get('/pessoas/:id', AnimaisService.show)
+routes.post('/pessoas', AnimaisService.create)
+routes.put('/pessoas/:id', AnimaisService.update)
+routes.delete('/pessoas/:id', AnimaisService.destroy)
+
+// register 
+routes.post('/register', UserService.create)
+routes.post('/register/authenticate', UserService.authenticate)
 
 module.exports = routes;

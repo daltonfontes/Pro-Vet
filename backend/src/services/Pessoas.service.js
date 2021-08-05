@@ -23,12 +23,13 @@ const show = async(req, res) =>{
 }
 
 const create = async(req, res) =>{
+    
     const pessoas = Pessoas(req.body)
     await pessoas.save()
     .then(response => {
         return res.status(200).json(response)
     }).catch(error=>{
-        return status(500).json(error)
+        return res.status(500).json(error)
     })
 }
 
