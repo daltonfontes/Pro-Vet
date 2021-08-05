@@ -1,23 +1,13 @@
 import styled from 'styled-components';
+import TextField from '@material-ui/core/TextField';
 
-const Inputs = styled.input`
+const Inputs = styled(TextField)`
+    
     background: var(--white);
     border: 1px solid var(--cyan-800);
     box-sizing: border-box;
     border-radius: 15px;
     text-align:center;
-`;
-
-export const InputPass = styled(Inputs).attrs({type:"password"})`
-    width: 350px;
-    height: 60px;
-`;
-
-export const InputEmail = styled(Inputs).attrs({type:"email"})`
-
-    width: 350px;
-    height: 60px;
-
 `;
 
 export default Inputs;

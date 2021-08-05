@@ -1,18 +1,76 @@
 import React from 'react';
 
 import styled from 'styled-components';
+import { Logo } from '../../../components/Logo';
+import { SideBar } from '../../../components/Sidebar';
 
-import {Logo} from '../../../components/Logo';
-import Title from '../../../components/Title';
-import bg from '../../../assets/bg.jpg';
+import { Button, makeStyles } from '@material-ui/core/';
+import HomeIcon from '@material-ui/icons/Home';
+import PetsIcon from '@material-ui/icons/Pets';
+import LocalPharmacyIcon from '@material-ui/icons/LocalPharmacy';
+import ExitToAppIcon from '@material-ui/icons/ExitToApp';
+import PersonAddIcon from '@material-ui/icons/PersonAdd';
+
 
 
 function Dashboard() {
+  const useStyles = makeStyles((theme) => ({
+    font: {
+      fontFamily: 'Patua One',
+      fontSize: '12px',
+    },
+    bottom: {
+      fontFamily: 'Patua One',
+      fontSize: '12px',
+      marginTop: '300px',
+    }
+  }));
+
+  const classes = useStyles();
   return (
     <Wrapper>
-    <SideBar>
-      <Logo className='logo-nav' loading='lazy'></Logo>
+      <SideBar>
+        <Logo className='logo-nav' loading='lazy'></Logo>
 
+        <Button
+          className={classes.font}
+          size="medium"
+          component="button"
+          href="/dashboard"
+          variant="contained"
+          tabIndex="1"
+          startIcon={<HomeIcon />}
+        >
+          Inicio
+        </Button>
+
+        <Button
+          className={classes.font}
+          size="medium"
+          component="button"
+          target="_parent"
+          href="../dashboard/cadastrar_animais"
+          variant="contained"
+          tabIndex="2"
+          startIcon={<PetsIcon />}
+        >
+          Animais
+        </Button>
+
+        <Button
+          className={classes.font}
+          size="medium"
+          component="button"
+          href="../dashboard/internacao"
+          target="_parent"
+          variant="contained"
+          tabIndex="3"
+          startIcon={<LocalPharmacyIcon />}
+        >
+          Internação
+        </Button>
+
+<<<<<<< HEAD
       <a className='btn-animais' href='/animais'role='button'><img src="https://streamline-production-bucket.cellar-c2.services.clever-cloud.com/icons/low/subc_mRu4pQJ4vVww2aEwAZJttI75/pets-paw-sprwijrjtsvs80j51amsg.png" alt=""></img></a>
 
       <a className='btn-internacao' href='/internacao'role='button'><img src="https://streamline-production-bucket.cellar-c2.services.clever-cloud.com/icons/low/subc_mRu4pQJ4vVww2aEwAZJttI75/pets-paw-hospital-imv1pxpqu1qrzngn6e8pzk.png" alt=""></img></a>
@@ -26,19 +84,41 @@ function Dashboard() {
     </SideBar>
     <Logo className='logo-center' loading='lazy'></Logo>
     <Title>Seja Bem Vindo!</Title>
+=======
+        <Button
+          className={classes.font}
+          size="medium"
+          component="button"
+          target="_parent"
+          href="../dashboard/cadastrar_usuario"
+          variant="contained"
+          tabIndex="4"
+          startIcon={<PersonAddIcon />}
+        >
+          Cadastrar Usuário
+        </Button>
+
+        <Button
+          className={classes.bottom}
+          size="medium"
+          component="button"
+          href="/"
+          variant="contained"
+          tabIndex="5"
+          startIcon={<ExitToAppIcon />}
+        >
+          Sair
+        </Button>
+      </SideBar>
+>>>>>>> development
     </Wrapper>
   );
 }
-
-
 const Wrapper = styled.div`
 display:flex;
 align-items:center;
-background:
-linear-gradient(180deg, rgba(22, 135, 167, 0.79) 0%, rgba(22, 135, 167, 0.3) 100%),
-url(${bg}), var(--cyan-800);
-background-size:cover;
 
+<<<<<<< HEAD
 img.logo-center {
   margin-left:75vh;
 }
@@ -49,38 +129,7 @@ h1 {
   color: var(--white);
   font-weight: bold;
 }
+=======
+>>>>>>> development
 `;
-const  SideBar= styled.nav`
-width: 155px;
-min-height: 100vh;
-background: var(--cyan-500);
-border-radius: 0px 30px 30px 0px;
-display: flex;
-flex-direction:column;
-position:relative;
-
-img.logo-nav {
-  width:119px;
-  height:119px;
-  margin: 15px;
-}
-
-a {
-  width:90px;
-  height:90px;
-  border-radius:20px;
-  border:none;
-  cursor:pointer;
-  background:var(--white);
-  margin-left: 30px;
-  margin-bottom: 30px;
-}
-
-a img {
-  width:45px;
-  height:45px;
-  margin:20px;
-}
-`;
-
 export default Dashboard;

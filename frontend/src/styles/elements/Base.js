@@ -12,9 +12,12 @@ const Base = createGlobalStyle`
 
     :root 
 {
-    --white: #FFF; 
-    --cyan-500: #276678;
-    --cyan-800: #1687A7;
+    --white: #E9EFF1;
+    --white-50:#BDD2D9;
+    --yellow: #D4D11E;
+    --blue-500: #226677;
+    --blue-800:#042938;
+    --black-50:#42484A;
 }
 
 @media (max-width: 1080px) 
@@ -43,7 +46,7 @@ const Base = createGlobalStyle`
     }
 
     body, textarea, input, button{
-        font: 500 1rem Antic Slab, serif;
+        font: 500 1rem 'Patua One', cursive;
     }
     h1
     {
