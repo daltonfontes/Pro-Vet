@@ -8,6 +8,7 @@ Esse projeto tem como objetivo auxiliar o hospital veterinário de Resende.
 - [MySql](https://www.mysql.com/)
 - [ReactJS](https://pt-br.reactjs.org/)
 - [Axios](https://axios-http.com/)
+- [Express](https://expressjs.com/pt-br/)
 - [Git](https://git-scm.com/)
 
 ## Começando
