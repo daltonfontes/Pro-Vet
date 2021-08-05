@@ -38,5 +38,6 @@ const authenticate = async (req, res)=>{
 
 module.exports = {
   create,
-  authenticate
+  authenticate,
+  generateToken
 };

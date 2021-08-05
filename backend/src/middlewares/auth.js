@@ -15,7 +15,7 @@ module.exports = (req, res, next) => {
         return res.status(401).json({error: 'Token Error'})
     }
 
-    const [ scheme, token ] = parts;
+    const [ , token ] = parts;
 
     jwt.verify(token, authConfig.secret, (err, decoded)=>{
         if(err) return res.status(401).json({error: 'Token Invalido'})

@@ -4,14 +4,15 @@ const Schema = mongoose.Schema
 
 const UserSchema = new Schema({
     nome: { type: String, required: true },
-    crmv: { type: String, required: true},
-    cpf: { type: String, required: true, unique: true },
-    telefone: {type: String, required: true},
-    funcao: { type: String, required: true },
-    acesso: {type: String, required: true},
+    crmv: { type: String},
+    cpf: { type: String, unique: true },
+    telefone: {type: String},
+    funcao: { type: String },
+    acesso: {type: String},
     email:{type: String, required: true, },
     senha: {type: String, required: true, select: false},
     foto:{type: String},
+    roles:{ type: Array }
 },{
     timestamps: true
 })
