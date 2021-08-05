@@ -23,12 +23,16 @@ const show = async(req, res) =>{
 }
 
 const create = async(req, res) =>{
-    
+    const { email } = req.body;
+  if(await Pessoas.findOne({ email })){
+    return res.status(400).json({error: 'Ja existe um cadastro com esse email'})
+  }
     const pessoas = Pessoas(req.body)
     await pessoas.save()
     .then(response => {
         return res.status(200).json(response)
     }).catch(error=>{
+        
         return res.status(500).json(error)
     })
 }
