@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 
 import styled from 'styled-components';
 import { SideBar } from '../../../../components/Sidebar';
@@ -56,6 +56,29 @@ function CadastrarUsuario() {
     }));
 
     const classes = useStyles();
+    const initialState = {
+        
+    };
+    const [values, setValues] = useState();
+
+    const onSubmit = async (ev)=>{
+        ev.preventDefault();
+    const response = await fetch('http://localhost:5001/register', {
+      method: 'POST',
+      body: JSON.stringify({ values }),
+      headers: new Headers({'content-type': 'application/json', 'Access-Control-Allow-Origin': '*'}),
+    })
+    if(response.status === 200){
+      window.location.replace('http://localhost:3000/dashboard')
+    }
+    };
+
+    const onChange = (ev)=>{
+        const { name, value } = ev.target;
+        setValues({ ...values, [name]: value });
+        
+    }
+    
     return (
         <Wrapper>
             <SideBar>
@@ -119,7 +142,7 @@ function CadastrarUsuario() {
                     Sair
                 </Button>
             </SideBar>
-            <Container component="form">
+            <Container onSubmit={onSubmit} component="form">
                 <Typography
                     className={classes.title}
                 >
@@ -130,49 +153,43 @@ function CadastrarUsuario() {
                     light="true"
                 />
                 <Grid container spacing={2}>
-                    <Grid item xs={10} sm={4}>
-                        <TextField
-                            className={classes.inputText}
-                            required
-                            id="codigo"
-                            name="Codigo"
-                            label="Código"
-                            fullWidth
-                        />
-                    </Grid>
                     <Grid item xs={12} sm={6}>
                         <TextField
                             className={classes.inputText}
                             required
                             id="Nome"
-                            name="Nome"
+                            name="nome"
                             label="Nome Completo"
                             fullWidth
+                            onChange={onChange}
                         />
                     </Grid>
                     <Grid item xs={2}>
                         <TextField
                             className={classes.inputText}
                             id="CRMV"
-                            name="CRMV"
+                            name="crmv"
                             label="CRMV"
                             fullWidth
+                            onChange={onChange}
                         />
                     </Grid>
                     <Grid item xs={2}>
                         <TextField
                             id="CPF"
-                            name="CPF"
+                            name="cpf"
                             label="CPF*"
+                            onChange={onChange}
                         />
                     </Grid>
                     <Grid item xs={3} >
                         <TextField
                             required
                             id="Telefone"
-                            name="Telefone"
+                            name="telefone"
                             label="Telefone"
                             fullWidth
+                            onChange={onChange}
                         />
                     </Grid>
                     <Grid item xs={3}>
@@ -182,9 +199,10 @@ function CadastrarUsuario() {
                         <TextField
                             required
                             id="Acesso"
-                            name="Acesso"
+                            name="acesso"
                             label="Acesso"
                             fullWidth
+                            onChange={onChange}
                         />
                     </Grid>
                     <Grid item xs={6}>
@@ -194,6 +212,7 @@ function CadastrarUsuario() {
                             name="email"
                             label="E-mail"
                             fullWidth
+                            onChange={onChange}
                         />
                     </Grid>
                     <Grid item xs={6}>
@@ -203,6 +222,7 @@ function CadastrarUsuario() {
                             name="senha"
                             label="Senha"
                             fullWidth
+                            onChange={onChange}
                         />
                     </Grid>
                     <Grid item spacing={2}>
