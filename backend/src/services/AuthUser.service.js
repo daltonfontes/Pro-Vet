@@ -23,7 +23,8 @@ const create = async (req, res) => {
 };
 
 const authenticate = async (req, res)=>{
-  const { email, senha } = req.body;
+  const { values: {email , password: senha} } = req.body
+  
   const user =  await User.findOne({ email }).select('+senha')
 
   if(!user){

@@ -1,14 +1,14 @@
-import React, { useState } from 'react';
-import Container from '@material-ui/core/Container';
-import TextField from '@material-ui/core/TextField';
-import Checkbox from '@material-ui/core/Checkbox';
-import { FormControlLabel, Typography } from '@material-ui/core';
-import { makeStyles } from '@material-ui/core/styles';
-import CssBaseline from '@material-ui/core/CssBaseline';
-
-
-import { Btnlogin } from '../../components/Button';
+import React, { useState } from "react";
+import Container from "@material-ui/core/Container";
+import TextField from "@material-ui/core/TextField";
+import Checkbox from "@material-ui/core/Checkbox";
+import { Button, FormControlLabel, Typography } from "@material-ui/core";
+import { makeStyles } from "@material-ui/core/styles";
+import CssBaseline from "@material-ui/core/CssBaseline";
+import axios from 'axios';
+import { Btnlogin } from "../../components/Button";
 import { BoxStyled } from "../../components/Form";
+import { CompareArrowsOutlined } from "@material-ui/icons";
 
 function Home() {
   const useStyles = makeStyles((theme) => ({
@@ -17,30 +17,61 @@ function Home() {
     },
 
     paper: {
-      display: 'flex',
-      flexDirection: 'column',
-      alignItems: 'center',
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center",
     },
 
     font: {
       fontFamily: "'Patua One', cursive",
       marginBottom: theme.spacing(5),
-    }
+    },
   }));
+ 
+  const onSubmit = async (ev)=>{
+    ev.preventDefault();
+    const response = await fetch('http://localhost:5001/register/authenticate', {
+      method: 'POST',
+      body: JSON.stringify({ values }),
+      headers: new Headers({'content-type': 'application/json', 'Access-Control-Allow-Origin': '*'}),
+    })
+    if(response.status === 200){
+      window.location.replace('http://localhost:3000/dashboard')
+    }
+    
+  }
+  const initialState = {
+    email: "",
+    password: "",
+  };
+  
 
   const classes = useStyles();
-  const [username, setUserName] = useState();
-  const [password, setPassword] = useState();
+  const [values, setValues] = useState(initialState);
+
+  const onChange = (ev) => {
+    const { name, value } = ev.target;
+    setValues({ ...values, [name]: value });
+  };
+
   return (
-    <Container component="main" maxWidth="xs">
+    <form onSubmit={onSubmit}>
+    <Container component="main" maxWidth="xs" >
       <CssBaseline />
       <div className={classes.paper}>
         <BoxStyled>
-          <Typography className={classes.font} component="h1" variant="h4" align="center">
+          <Typography
+            className={classes.font}
+            component="h1"
+            variant="h4"
+            align="center"
+          >
             Login
           </Typography>
-          <TextField className={classes.form}
-            onChange={e => setUserName(e.target.value)}
+          <TextField
+            className={classes.form}
+            name="email"
+            onChange={onChange}
             variant="outlined"
             type="text"
             placeholder="Digite um usuario valido"
@@ -52,26 +83,31 @@ function Home() {
             autoFocus
           />
           <TextField
-            onChange={e => setPassword(e.target.value)}
+            onChange={onChange}
             variant="outlined"
             type="password"
+            name="password"
             placeholder="Digite uma senha"
             aria-required="true"
             label="Senha"
             required
             fullWidth
-            autoFocus />
+            autoFocus
+          />
 
           <FormControlLabel
             control={<Checkbox value="remember" color="primary" />}
             label="Lembrar senha"
           />
-          <Btnlogin type="submit" as="a" href="/dashboard">Entrar</Btnlogin>
+          <Btnlogin type="submit" >
+            Entrar
+          </Btnlogin>
         </BoxStyled>
-        /</div>
+        /
+      </div>
     </Container>
+    </form>
   );
 }
-
 
 export default Home;
