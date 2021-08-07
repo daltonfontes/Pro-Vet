@@ -19,22 +19,22 @@ routes.get('/roles', RolesService.index)
 routes.post('/register', UserService.create)
 routes.post('/register/authenticate', UserService.authenticate)
 
-routes.use(authMiddleware);
-//    rotas people    pessoas
+//routes.use(authMiddleware);
+
 routes.get('/pessoas', PessoasService.index)
 routes.get('/pessoas/:id', PessoasService.show)
 routes.post('/pessoas',PessoasService.create)
 routes.put('/pessoas/:id', PessoasService.update)
 routes.delete('/pessoas/:id', PessoasService.destroy)
 
-//   rota animals    animais
+
 routes.get('/animais', AnimaisService.index)
 routes.get('/animais/:id', AnimaisService.show)
 routes.post('/animais', AnimaisService.create)
 routes.put('/animais/:id', AnimaisService.update)
 routes.delete('/animais/:id', AnimaisService.destroy)
 
-// register 
+
 
 
 module.exports = routes;

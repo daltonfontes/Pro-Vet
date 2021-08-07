@@ -25,8 +25,13 @@ const create = async (req, res) => {
 };
 
 const authenticate = async (req, res)=>{
-  const { values: {email , password: senha} } = req.body
-  
+  console.log(req.body)
+  const {  email, password:senha } = req.body
+
+
+  if(!email && !senha){
+    return res.status(400).json({err: 'Credencias não enviadas'})
+  }
   const user =  await User.findOne({ email }).select('+senha')
 
   if(!user){

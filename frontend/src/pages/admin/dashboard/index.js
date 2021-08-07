@@ -1,5 +1,8 @@
 import React from 'react';
 
+import { connect } from 'react-redux'
+import { bindActionCreators } from "redux"
+
 import styled from 'styled-components';
 import { Logo } from '../../../components/Logo';
 import { SideBar } from '../../../components/Sidebar';
@@ -11,9 +14,11 @@ import LocalPharmacyIcon from '@material-ui/icons/LocalPharmacy';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import PersonAddIcon from '@material-ui/icons/PersonAdd';
 
+import { userAuthenticate } from '../../../redux-flow/actions'
 
 
-function Dashboard() {
+function Dashboard({userAuthenticate, data}) {
+  
   const useStyles = makeStyles((theme) => ({
     font: {
       fontFamily: 'Patua One',
@@ -103,4 +108,14 @@ display:flex;
 align-items:center;
 
 `;
-export default Dashboard;
+
+
+const mapStateToProps = state => ({
+  data: state.user
+})
+
+const mapDispatch = dispatch => bindActionCreators({
+  userAuthenticate
+}, dispatch)
+
+export default connect(mapStateToProps, mapDispatch) (Dashboard);
