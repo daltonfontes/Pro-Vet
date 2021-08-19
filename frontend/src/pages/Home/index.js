@@ -43,9 +43,7 @@ function Home({userAuthenticate, stateReducer}) {
       marginBottom: theme.spacing(5),
     },
   }));
-
-  
-
+ 
   const onSubmit = async (ev) => {
     ev.preventDefault();
     await userAuthenticate(values)

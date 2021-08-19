@@ -1,5 +1,11 @@
 export const AUTHETICATE_USER = 'AUTHETICATE_USER';
+
 export const LOAD_USER = 'LOAD_USER'
 export const SUCCESS_USER = 'SUCCESS_USER'
 export const ERROR_USER = 'ERROR_USER'
+
 export const FETCH_ANIMALS = 'FETCH_ANIMALS'
+
+export const SUCESS_ANIMALS = 'SUCESS_ANIMALS'
+export const LOAD_ANIMALS  = 'LOAD_ANIMALS'
+export const ERROR_ANIMALS  = 'ERROR_ANIMALS'

@@ -3,19 +3,15 @@ import React from 'react';
 import styled from 'styled-components';
 import { SideBar } from '../../../../components/Sidebar';
 import { Logo } from '../../../../components/Logo';
-import { useHistory } from "react-router-dom";
+
 import { Button, Container, Divider, Grid, makeStyles, withStyles, Table, TableBody, TableContainer, TableHead, TableRow, TableCell, Typography, Box, TextField } from '@material-ui/core/';
 import HomeIcon from '@material-ui/icons/Home';
 import PetsIcon from '@material-ui/icons/Pets';
 import LocalPharmacyIcon from '@material-ui/icons/LocalPharmacy';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import PersonAddIcon from '@material-ui/icons/PersonAdd';
-import './style.css';
 
 function Internacao() {
-
-    const history = useHistory();
-
     const useStyles = makeStyles((theme) => ({
         font: {
             fontFamily: 'Patua One',
@@ -65,9 +61,6 @@ function Internacao() {
     }))(TableCell);
 
     const classes = useStyles();
-    const onClick = ()=>{
-        history.push("/dashboard/create_animal")
-    }
     return (
         <Wrapper>
             <SideBar>
@@ -152,23 +145,43 @@ function Internacao() {
                         className={classes.button}
                         size="small"
                         target="_parent"
-                        onClick={onClick}
+                        href="../dashboard/cadastrar_animais"
                     >Cadastrar Animais</Button>
                 </Box>
                 <Box display="flex" flexDirection="row">
                     <Typography
                         className={classes.title}
                     >
-                        Animais 
+                        Animais Internados
                     </Typography>
                 </Box>
                 <Divider
                     className={classes.hr}
                     light="true"
                 />
-                <div className="Container_Card_Animais">
-
-                </div>
+                <Grid>
+                    <TableContainer>
+                        <Table size="medium" aria-label="a dense table">
+                            <TableHead>
+                                <TableRow>
+                                    <StyledTableCell>Animal</StyledTableCell>
+                                    <StyledTableCell align="center">Tipo de Internação</StyledTableCell>
+                                    <StyledTableCell align="center">Veterinário</StyledTableCell>
+                                    <StyledTableCell align="center">Data de Internação</StyledTableCell>
+                                </TableRow>
+                            </TableHead>
+                            <TableBody>
+                                <TableRow>
+                                    <StyledTableCell component="th" scope="row">Belinha
+                                    </StyledTableCell>
+                                    <StyledTableCell align="center">Observação</StyledTableCell>
+                                    <StyledTableCell align="center">Dalton</StyledTableCell>
+                                    <StyledTableCell align="center">18/05/2021</StyledTableCell>
+                                </TableRow>
+                            </TableBody>
+                        </Table>
+                    </TableContainer>
+                </Grid>
             </Container >
         </Wrapper >
     );
