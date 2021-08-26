@@ -9,13 +9,14 @@ const generateToken = (params={}) =>{
   })
 }
 const create = async (req, res) => {
-  const { values } = req.body
+  console.log('req', req.body)
   
-  const { email, CPF } = values;
-  if(await User.findOne({email, CPF})){
+  
+  const { email, cpf } = req.body;
+  if(await User.findOne({email, cpf})){
     return res.status(400).json({error: 'Ja existe um CPF ou Email cadastrado'})
   } 
-  const user = User({...values});
+  const user = User({...req.body});
   await user.save().then((response) => {
       return res.status(200).json({response, token: generateToken({id: user.id })})
     })
@@ -25,7 +26,7 @@ const create = async (req, res) => {
 };
 
 const authenticate = async (req, res)=>{
-  console.log(req.body)
+  
   const {  email, password:senha } = req.body
 
 
