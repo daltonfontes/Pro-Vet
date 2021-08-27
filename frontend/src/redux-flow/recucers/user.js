@@ -3,6 +3,7 @@ import {
   SUCCESS_USER,
   ERROR_USER,
   AUTHETICATE_USER,
+  CREATE_USER
 } from "../constants";
 
 const initialState = {
@@ -14,6 +15,7 @@ const initialState = {
 
 const user = (state = initialState, action) => {
   switch (action.type) {
+
     case AUTHETICATE_USER: {
       const { payload } = action;
       return {
@@ -45,6 +47,14 @@ const user = (state = initialState, action) => {
         error: true,
         success: false,
         loading: false
+      };
+    }
+
+    case CREATE_USER: {
+      const { payload } = action;
+      return {
+       ...state,
+       user: payload,
       };
     }
 

@@ -1,6 +1,8 @@
 import axios from "axios";
-import { LOAD_USER, SUCCESS_USER, ERROR_USER, AUTHETICATE_USER, FETCH_ANIMALS } from "../constants";
+import { LOAD_USER, SUCCESS_USER, ERROR_USER, AUTHETICATE_USER, FETCH_ANIMALS, CREATE_USER } from "../constants";
 import { toast } from "react-toastify";
+
+const host = 'http://localhost:5001/'
 
 const API = axios.create({
   baseURL: "http://localhost:5001",
@@ -25,7 +27,7 @@ export const userAuthenticate = (data) => {
     dispatch({
       type: LOAD_USER
     })
-    API.post("http://localhost:5001/register/authenticate",{...data}).then( ({ data }) => {
+    API.post(`${host}register/authenticate`,{...data}).then( ({ data }) => {
         
       dispatch({
           type: AUTHETICATE_USER,
@@ -41,6 +43,37 @@ export const userAuthenticate = (data) => {
         type: ERROR_USER
       })
       toast.error("Não Foi Possivel Logar")
+      return {
+        error
+      }
+    })
+  };
+};
+
+export const createUser =  (data) => {
+  
+  return (dispatch) => {
+    dispatch({
+      type: LOAD_USER
+    })
+    API.post(`${host}register`,{...data}).then( ({ data }) => {
+      toast.success("Usuario cadastrado com sucesso")
+       dispatch({
+          type: CREATE_USER,
+          payload: data
+      })
+
+      
+       dispatch({
+        type: SUCCESS_USER
+      })
+      
+
+    }).catch((error) => {
+      dispatch({
+        type: ERROR_USER
+      })
+      toast.error("Não foi possivel criar o usuario")
       return {
         error
       }

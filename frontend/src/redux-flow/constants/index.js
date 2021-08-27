@@ -1,4 +1,5 @@
 export const AUTHETICATE_USER = 'AUTHETICATE_USER';
+export const CREATE_USER = 'CREATE_USER'
 
 export const LOAD_USER = 'LOAD_USER'
 export const SUCCESS_USER = 'SUCCESS_USER'

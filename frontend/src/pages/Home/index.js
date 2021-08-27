@@ -10,7 +10,6 @@ import { Btnlogin } from "../../components/Button";
 import { BoxStyled } from "../../components/Form";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import 'react-toastify/dist/ReactToastify.css';
 import { connect } from 'react-redux'
 import { bindActionCreators } from "redux"
 import { userAuthenticate } from '../../redux-flow/actions';
@@ -97,7 +96,7 @@ function Home({userAuthenticate, stateReducer}) {
               placeholder="Digite uma senha"
               aria-required="true"
               label="Senha"
-              required
+              required 
               fullWidth
               autoFocus
             />

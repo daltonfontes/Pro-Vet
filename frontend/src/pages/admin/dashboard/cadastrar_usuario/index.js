@@ -1,9 +1,8 @@
-import React, {useState} from 'react';
-
+import React, { useState, useEffect } from 'react';
+import { useHistory } from "react-router-dom";
 import styled from 'styled-components';
 import { SideBar } from '../../../../components/Sidebar';
 import { Logo } from '../../../../components/Logo';
-
 import { Button, Container, Divider, makeStyles, TextField, Typography, Grid } from '@material-ui/core/';
 import HomeIcon from '@material-ui/icons/Home';
 import PetsIcon from '@material-ui/icons/Pets';
@@ -11,8 +10,13 @@ import LocalPharmacyIcon from '@material-ui/icons/LocalPharmacy';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import PersonAddIcon from '@material-ui/icons/PersonAdd';
 
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { connect } from 'react-redux'
+import { bindActionCreators } from "redux"
+import { createUser } from '../../../../redux-flow/actions';
 
-function CadastrarUsuario() {
+function CadastrarUsuario({ createUser, stateReducer }) {
     const useStyles = makeStyles((theme) => ({
         font: {
             fontFamily: 'Patua One',
@@ -56,181 +60,186 @@ function CadastrarUsuario() {
     }));
 
     const classes = useStyles();
-    const initialState = {
-        
-    };
+    const { success, loading } = stateReducer;
     const [values, setValues] = useState();
+    const history = useHistory();
 
-    const onSubmit = async (ev)=>{
-        ev.preventDefault();
-    const response = await fetch('http://localhost:5001/register', {
-      method: 'POST',
-      body: JSON.stringify({ values }),
-      headers: new Headers({'content-type': 'application/json', 'Access-Control-Allow-Origin': '*'}),
-    })
-    if(response.status === 200){
-      window.location.replace('http://localhost:3000/dashboard')
-    }
-    };
 
-    const onChange = (ev)=>{
+    const onChange = (ev) => {
         const { name, value } = ev.target;
         setValues({ ...values, [name]: value });
+    };
+
+    const onSubmit = async (ev) => {
+        ev.preventDefault();
+        createUser(values)
+    };
+    useEffect(() => {
+        if(success){
+            const timer = setTimeout(() => {
+                history.push('/dashboard')
+              }, 2000);
+              return () => clearTimeout(timer);
+        }
         
-    }
+        
+      }, [success]);
     
     return (
-        <Wrapper>
-            <SideBar>
-                <Logo className='logo-nav' loading='lazy'></Logo>
-                <Button
-                    className={classes.font}
-                    size="medium"
-                    component="button"
-                    href="/dashboard"
-                    variant="contained"
-                    tabIndex="1"
-                    startIcon={<HomeIcon />}
-                >
-                    Inicio
-                </Button>
-                <Button
-                    className={classes.font}
-                    size="medium"
-                    component="button"
-                    target="_parent"
-                    href="../dashboard/cadastrar_animais"
-                    variant="contained"
-                    tabIndex="2"
-                    startIcon={<PetsIcon />}
-                >
-                    Animais
-                </Button>
-                <Button
-                    className={classes.font}
-                    size="medium"
-                    component="button"
-                    href="../dashboard/internacao"
-                    target="_parent"
-                    variant="contained"
-                    tabIndex="3"
-                    startIcon={<LocalPharmacyIcon />}
-                >
-                    Internação
-                </Button>
-                <Button
-                    className={classes.font}
-                    size="medium"
-                    component="button"
-                    target="_parent"
-                    href="../dashboard/cadastrar_usuario"
-                    variant="contained"
-                    tabIndex="4"
-                    startIcon={<PersonAddIcon />}
-                >
-                    Cadastrar Usuário
-                </Button>
-                <Button
-                    className={classes.bottom}
-                    size="medium"
-                    component="button"
-                    href="/"
-                    variant="contained"
-                    tabIndex="5"
-                    startIcon={<ExitToAppIcon />}
-                >
-                    Sair
-                </Button>
-            </SideBar>
-            <Container onSubmit={onSubmit} component="form">
-                <Typography
-                    className={classes.title}
-                >
-                    Cadadastro de Usuário
-                </Typography>
-                <Divider
-                    className={classes.hr}
-                    light="true"
-                />
-                <Grid container spacing={2}>
-                    <Grid item xs={12} sm={6}>
-                        <TextField
-                            className={classes.inputText}
-                            required
-                            id="Nome"
-                            name="nome"
-                            label="Nome Completo"
-                            fullWidth
-                            onChange={onChange}
-                        />
+        <form onSubmit={onSubmit}>
+            <Wrapper>
+                <SideBar>
+                    <Logo className='logo-nav' loading='lazy'></Logo>
+                    <Button
+                        className={classes.font}
+                        size="medium"
+                        component="button"
+                        href="/dashboard"
+                        variant="contained"
+                        tabIndex="1"
+                        startIcon={<HomeIcon />}
+                    >
+                        Inicio
+                    </Button>
+                    <Button
+                        className={classes.font}
+                        size="medium"
+                        component="button"
+                        target="_parent"
+                        href="../dashboard/cadastrar_animais"
+                        variant="contained"
+                        tabIndex="2"
+                        startIcon={<PetsIcon />}
+                    >
+                        Animais
+                    </Button>
+                    <Button
+                        className={classes.font}
+                        size="medium"
+                        component="button"
+                        href="../dashboard/internacao"
+                        target="_parent"
+                        variant="contained"
+                        tabIndex="3"
+                        startIcon={<LocalPharmacyIcon />}
+                    >
+                        Internação
+                    </Button>
+                    <Button
+                        className={classes.font}
+                        size="medium"
+                        component="button"
+                        target="_parent"
+                        href="../dashboard/cadastrar_usuario"
+                        variant="contained"
+                        tabIndex="4"
+                        startIcon={<PersonAddIcon />}
+                    >
+                        Cadastrar Usuário
+                    </Button>
+                    <Button
+                        className={classes.bottom}
+                        size="medium"
+                        component="button"
+                        href="/"
+                        variant="contained"
+                        tabIndex="5"
+                        startIcon={<ExitToAppIcon />}
+                    >
+                        Sair
+                    </Button>
+                </SideBar>
+                <Container >
+                    <Typography
+                        className={classes.title}
+                    >
+                        Cadadastro de Usuário
+                    </Typography>
+                    <Divider
+                        className={classes.hr}
+                        light="true"
+                    />
+                    <Grid container spacing={2}>
+                        <Grid item xs={12} sm={6}>
+                            <TextField
+                                className={classes.inputText}
+                                required
+                                id="Nome"
+                                name="nome"
+                                label="Nome Completo"
+                                fullWidth
+                                onChange={onChange}
+                            />
+                        </Grid>
+                        <Grid item xs={2}>
+                            <TextField
+                                className={classes.inputText}
+                                id="CRMV"
+                                name="crmv"
+                                label="CRMV"
+                                fullWidth
+                                onChange={onChange}
+                            />
+                        </Grid>
+                        <Grid item xs={2}>
+                            <TextField
+                                id="CPF"
+                                name="cpf"
+                                label="CPF*"
+                                onChange={onChange}
+                            />
+                        </Grid>
+                        <Grid item xs={3} >
+                            <TextField
+                                required
+                                id="Telefone"
+                                name="telefone"
+                                label="Telefone"
+                                fullWidth
+                                onChange={onChange}
+                            />
+                        </Grid>
+                        <Grid item xs={3}>
+                            <TextField required id="Funcao" onChange={onChange} name="funcao" label="Função" fullWidth />
+                        </Grid>
+                        <Grid item xs={4}>
+                            <TextField
+                                required
+                                id="Acesso"
+                                name="acesso"
+                                label="Acesso"
+                                fullWidth
+                                onChange={onChange}
+                            />
+                        </Grid>
+                        <Grid item xs={6}>
+                            <TextField
+                                required
+                                id="email"
+                                name="email"
+                                label="E-mail"
+                                fullWidth
+                                onChange={onChange}
+                            />
+                        </Grid>
+                        <Grid item xs={6}>
+                            <TextField
+                                required
+                                id="senha"
+                                name="senha"
+                                label="Senha"
+                                fullWidth
+                                onChange={onChange}
+                            />
+                        </Grid>
+                        <Grid item spacing={2}>
+                            <Button className={classes.button} size="large" type="submit">{loading ? ('loading') : ('Confirmar')}</Button>
+                        </Grid>
                     </Grid>
-                    <Grid item xs={2}>
-                        <TextField
-                            className={classes.inputText}
-                            id="CRMV"
-                            name="crmv"
-                            label="CRMV"
-                            fullWidth
-                            onChange={onChange}
-                        />
-                    </Grid>
-                    <Grid item xs={2}>
-                        <TextField
-                            id="CPF"
-                            name="cpf"
-                            label="CPF*"
-                            onChange={onChange}
-                        />
-                    </Grid>
-                    <Grid item xs={3} >
-                        <TextField
-                            required
-                            id="Telefone"
-                            name="telefone"
-                            label="Telefone"
-                            fullWidth
-                            onChange={onChange}
-                        />
-                    </Grid>
-                    <Grid item xs={3}>
-                        <TextField required id="Funcao" name="Funcao" label="Função" fullWidth />
-                    </Grid>
-                    <Grid item xs={4}>
-                        <TextField
-                            required
-                            id="Acesso"
-                            name="acesso"
-                            label="Acesso"
-                            fullWidth
-                            onChange={onChange}
-                        />
-                    </Grid>
-                    <Grid item xs={6}>
-                        <TextField
-                            required
-                            id="email"
-                            name="email"
-                            label="E-mail"
-                            fullWidth
-                            onChange={onChange}
-                        />
-                    </Grid>
-                    <Grid item xs={6}>
-                        <TextField
-                            required
-                            id="senha"
-                            name="senha"
-                            label="Senha"
-                            fullWidth
-                            onChange={onChange}
-                        />
-                    </Grid>
-                    <Grid item spacing={2}>
-                        <Button className={classes.button} size="large" type="submit">Confirmar</Button>
-                    </Grid>
-                </Grid>
-            </Container>
-        </Wrapper>
+                </Container>
+            </Wrapper>
+            <ToastContainer />
+        </form>
     );
 }
 
@@ -238,4 +247,13 @@ const Wrapper = styled.div`
 display:flex;
 `;
 
-export default CadastrarUsuario;
+const mapStateToProps = state => ({
+    stateReducer: state.user
+})
+
+const mapDispatch = dispatch => bindActionCreators({
+    createUser
+}, dispatch)
+
+
+export default connect(mapStateToProps, mapDispatch)(CadastrarUsuario);;
