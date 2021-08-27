@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import Container from "@material-ui/core/Container";
 import TextField from "@material-ui/core/TextField";
@@ -46,12 +46,16 @@ function Home({userAuthenticate, stateReducer}) {
   const onSubmit = async (ev) => {
     ev.preventDefault();
     await userAuthenticate(values)
-    if(success){
-      history.push("/dashboard")
-    } else{
-      history.push("/")
-    }
   };
+
+  useEffect(() => {
+    if(success){
+        const timer = setTimeout(() => {
+            history.push('/dashboard')
+          }, 1000);
+          return () => clearTimeout(timer);
+    }
+  }, [success]);
 
   const classes = useStyles();
 

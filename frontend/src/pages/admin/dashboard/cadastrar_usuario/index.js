@@ -74,15 +74,14 @@ function CadastrarUsuario({ createUser, stateReducer }) {
         ev.preventDefault();
         createUser(values)
     };
+
     useEffect(() => {
         if(success){
             const timer = setTimeout(() => {
                 history.push('/dashboard')
-              }, 2000);
+              }, 1000);
               return () => clearTimeout(timer);
         }
-        
-        
       }, [success]);
     
     return (
