@@ -19,24 +19,19 @@ function Home({userAuthenticate, stateReducer}) {
     email: "",
     password: "",
   };
-
   const { success, loading} = stateReducer;
-
   const history = useHistory();
   const [values, setValues] = useState(initialState);
-
 
   const useStyles = makeStyles((theme) => ({
     form: {
       marginBottom: theme.spacing(2),
     },
-
     paper: {
       display: "flex",
       flexDirection: "column",
       alignItems: "center",
     },
-
     font: {
       fontFamily: "'Patua One', cursive",
       marginBottom: theme.spacing(5),

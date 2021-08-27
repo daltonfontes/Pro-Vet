@@ -1,16 +1,8 @@
 import React from 'react';
-
 import styled from 'styled-components';
-import { SideBar } from '../../../../components/Sidebar';
-import { Logo } from '../../../../components/Logo';
 import { useHistory } from "react-router-dom";
 import { Button, Container, Divider, Grid, makeStyles, withStyles, Table, TableBody, TableContainer, TableHead, TableRow, TableCell, Typography, Box, TextField } from '@material-ui/core/';
-import HomeIcon from '@material-ui/icons/Home';
-import PetsIcon from '@material-ui/icons/Pets';
-import LocalPharmacyIcon from '@material-ui/icons/LocalPharmacy';
-import ExitToAppIcon from '@material-ui/icons/ExitToApp';
-import PersonAddIcon from '@material-ui/icons/PersonAdd';
-import './style.css';
+import Side from '../../Sidebar'
 
 function Internacao() {
 
@@ -70,72 +62,7 @@ function Internacao() {
     }
     return (
         <Wrapper>
-            <SideBar>
-                <Logo className='logo-nav' loading='lazy'></Logo>
-
-                <Button
-                    className={classes.font}
-                    size="medium"
-                    component="button"
-                    href="/dashboard"
-                    variant="contained"
-                    tabIndex="1"
-                    startIcon={<HomeIcon />}
-                >
-                    Inicio
-                </Button>
-
-                <Button
-                    className={classes.font}
-                    size="medium"
-                    component="button"
-                    target="_parent"
-                    href="../dashboard/cadastrar_animais"
-                    variant="contained"
-                    tabIndex="2"
-                    startIcon={<PetsIcon />}
-                >
-                    Animais
-                </Button>
-
-                <Button
-                    className={classes.font}
-                    size="medium"
-                    component="button"
-                    target="_parent"
-                    href="../dashboard/internacao"
-                    variant="contained"
-                    tabIndex="3"
-                    startIcon={<LocalPharmacyIcon />}
-                >
-                    Internação
-                </Button>
-
-                <Button
-                    className={classes.font}
-                    size="medium"
-                    component="button"
-                    target="_parent"
-                    href="../dashboard/cadastrar_usuario"
-                    variant="contained"
-                    tabIndex="4"
-                    startIcon={<PersonAddIcon />}
-                >
-                    Cadastrar Usuário
-                </Button>
-
-                <Button
-                    className={classes.bottom}
-                    size="medium"
-                    component="button"
-                    href="/"
-                    variant="contained"
-                    tabIndex="5"
-                    startIcon={<ExitToAppIcon />}
-                >
-                    Sair
-                </Button>
-            </SideBar>
+           <Side/>
             <Container className={classes.container}>
                 <Box display="flex" justifyContent="center">
                     <TextField
