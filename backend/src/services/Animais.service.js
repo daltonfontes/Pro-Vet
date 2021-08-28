@@ -1,4 +1,5 @@
 const Animais = require('../model/animais')
+const PessoaService = require('../services/Pessoas.service')
 
 const index = async(req, res) =>{
     await Animais.find()
@@ -23,6 +24,7 @@ const show = async(req, res) =>{
 }
 
 const create = async(req, res) =>{
+    console.log(req.body)
     const animais = Animais(req.body)
     await animais.save()
     .then(response => {
