@@ -1,10 +1,22 @@
 import axios from "axios";
 import {
-  LOAD_USER, SUCCESS_USER, ERROR_USER, AUTHETICATE_USER, FETCH_ANIMALS, CREATE_USER, LOAD_PESSOA,
+  LOAD_USER,
+  SUCCESS_USER,
+  ERROR_USER,
+  AUTHETICATE_USER,
+  FETCH_ANIMALS,
+  CREATE_USER,
+  LOAD_PESSOA,
   SUCESS_PESSOA,
   ERROR_PESSOA,
-  CREATE_PESSOA
+  CREATE_PESSOA,
+  CREATE_ANIMAL,
+  LOAD_ANIMALS,
+  SUCESS_ANIMALS,
+  ERROR_ANIMALS
+
 } from "../constants";
+
 import { toast } from "react-toastify";
 
 const host = 'http://localhost:5001/'
@@ -17,7 +29,6 @@ export const fetchAnimals = () => {
   return (dispatch) => {
     API.get("/animais")
       .then(({ data }) => {
-        console.log(data);
         dispatch({
           type: FETCH_ANIMALS,
           payload: data,
@@ -62,7 +73,7 @@ export const createUser = (data) => {
       type: LOAD_USER
     })
     API.post(`${host}register`, { ...data }).then(({ data }) => {
-      toast.success("Usuario cadastrado com sucesso")
+      toast.success("Animal cadastrado com sucesso")
       dispatch({
         type: CREATE_USER,
         payload: data
@@ -87,16 +98,16 @@ export const createUser = (data) => {
 };
 
 export const creatPessoa = (data) => {
-console.log('bateu na action ', data)
+
   return (dispatch) => {
     dispatch({
       type: LOAD_PESSOA
     });
 
-    API.post(`${host}pessoas`,{...data}).then(({data})=>{
+    API.post(`${host}pessoas`, { ...data }).then(({ data }) => {
       toast.success("Cadastrado com sucesso")
       dispatch({
-        type:CREATE_PESSOA,
+        type: CREATE_PESSOA,
         payload: data
       })
 
@@ -104,12 +115,40 @@ console.log('bateu na action ', data)
         type: SUCESS_PESSOA
       })
 
-    }).catch((error)=>{
+    }).catch((error) => {
       dispatch({
         type: ERROR_PESSOA
       })
       toast.error("Não foi possivel cadastrar")
-      return{error}
+      return { error }
+    })
+  };
+};
+
+export const creatAnimal = (data) => {
+
+  return (dispatch) => {
+    dispatch({
+      type: LOAD_ANIMALS
+    });
+
+    API.post(`${host}animais`, { ...data }).then(({ data }) => {
+      toast.success("Cadastrado com sucesso")
+      dispatch({
+        type: CREATE_ANIMAL,
+        payload: data
+      })
+
+      dispatch({
+        type: SUCESS_ANIMALS
+      })
+
+    }).catch((error) => {
+      dispatch({
+        type: ERROR_ANIMALS
+      })
+      toast.error("Não foi possivel cadastrar")
+      return { error }
     })
   };
 };

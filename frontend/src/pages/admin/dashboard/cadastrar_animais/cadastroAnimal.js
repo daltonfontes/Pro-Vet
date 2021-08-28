@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import styled from 'styled-components';
 
@@ -12,8 +12,9 @@ import { bindActionCreators } from "redux"
 import { ToastContainer, toast } from 'react-toastify';
 import Side from '../../Sidebar'
 import './style.css';
+import { creatAnimal } from '../../../../redux-flow/actions';
 
-function CadastrarAnimais() {
+function CadastrarAnimais({ creatAnimal, stateReducer }) {
 
     const useStyles = makeStyles((theme) => ({
         font: {
@@ -56,23 +57,36 @@ function CadastrarAnimais() {
             fontFamily: 'Patua One'
         }
     }));
-    const [values, setValues] = useState({});
+
+    const [values, setValues] = useState();
+    const history = useHistory();
+    const { success, loading } = stateReducer;
+
     const onChange = (ev) => {
         const { name, value } = ev.target;
         setValues({ ...values, [name]: value });
-        console.log({ ...values })
     };
 
     const onSubmit = async (ev) => {
         ev.preventDefault();
-
+        creatAnimal(values)
     };
+
+    useEffect(() => {
+        if (success) {
+            const timer = setTimeout(() => {
+                history.push('/dashboard')
+            }, 1000);
+            return () => clearTimeout(timer);
+        }
+    }, [success]);
+
     const classes = useStyles();
     return (
         <form onSubmit={onSubmit}>
             <Wrapper>
                 <Side />
-                <Container component="form">
+                <Container >
                     <Typography
                         className={classes.title}
                     >
@@ -88,7 +102,7 @@ function CadastrarAnimais() {
                                 className={classes.inputText}
                                 required
                                 id="Nome"
-                                name="Nome"
+                                name="nome"
                                 label="Nome do Animal"
                                 fullWidth
                                 onChange={onChange}
@@ -99,7 +113,7 @@ function CadastrarAnimais() {
                             <TextField
                                 className={classes.inputText}
                                 id="Especie"
-                                name="Especie"
+                                name="especie"
                                 label="Espécie"
                                 fullWidth
                                 required
@@ -111,7 +125,7 @@ function CadastrarAnimais() {
                             <TextField
                                 className={classes.inputText}
                                 id="Idade"
-                                name="Idade"
+                                name="idade"
                                 label="Idade"
                                 required
                                 fullWidth
@@ -133,8 +147,8 @@ function CadastrarAnimais() {
                         <Grid item xs={3} >
                             <InputLabel
                                 required
-                                id="temperamento"
-                                name="sexo"
+                                id="sexo"
+                                name="genero"
                                 label="sexo"
                                 fullWidth >Sexo</InputLabel>
                             <Select onChange={onChange} name="sexo" defaultValue="" id="grouped-select">
@@ -171,4 +185,14 @@ const Wrapper = styled.div`
 display:flex;
 
 `;
-export default CadastrarAnimais;
+
+
+const mapStateToProps = state => ({
+    stateReducer: state.animals
+});
+
+const mapDispatch = dispatch => bindActionCreators({
+    creatAnimal
+}, dispatch);
+
+export default connect(mapStateToProps, mapDispatch)(CadastrarAnimais);

@@ -4,3 +4,9 @@
     height: 300px;
     border: 1px solid black;
 }
+.Card_Animal{
+    display: flex;
+    width: 100px;
+    height: 100px;
+    border: 1px solid black;
+}

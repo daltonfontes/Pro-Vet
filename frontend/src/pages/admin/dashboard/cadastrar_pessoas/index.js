@@ -67,7 +67,6 @@ const CadastrarPessoas = ({creatPessoa, stateReducer})=> {
     
     
     const onSubmit = async (ev) => {
-        
         ev.preventDefault();
         creatPessoa(values)
     };

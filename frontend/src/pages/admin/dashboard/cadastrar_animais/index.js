@@ -1,10 +1,15 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { useHistory } from "react-router-dom";
 import { Button, Container, Divider, Grid, makeStyles, withStyles, Table, TableBody, TableContainer, TableHead, TableRow, TableCell, Typography, Box, TextField } from '@material-ui/core/';
-import Side from '../../Sidebar'
+import Side from '../../Sidebar';
+import { connect } from 'react-redux'
+import { bindActionCreators } from "redux"
+import { fetchAnimals } from '../../../../redux-flow/actions';
+import './style.css';
+import CardAnimal from './cardAnimal';
 
-function Internacao() {
+function Animais({ fetchAnimals, stateReducer }) {
 
     const history = useHistory();
 
@@ -57,12 +62,19 @@ function Internacao() {
     }))(TableCell);
 
     const classes = useStyles();
-    const onClick = ()=>{
+    const onClick = () => {
         history.push("/dashboard/create_animal")
     }
+    let animais = [];
+
+    useEffect(() => {
+        console.log('fez o fetch')
+        animais = fetchAnimals()
+    }, [])
+
     return (
         <Wrapper>
-           <Side/>
+            <Side />
             <Container className={classes.container}>
                 <Box display="flex" justifyContent="center">
                     <TextField
@@ -86,7 +98,7 @@ function Internacao() {
                     <Typography
                         className={classes.title}
                     >
-                        Animais 
+                        Animais
                     </Typography>
                 </Box>
                 <Divider
@@ -94,7 +106,10 @@ function Internacao() {
                     light="true"
                 />
                 <div className="Container_Card_Animais">
-
+                    {animais.map((el) => (
+                        console.log('el' ,el)
+                        //<CardAnimal data={el}></CardAnimal>
+                    ))}
                 </div>
             </Container >
         </Wrapper >
@@ -105,4 +120,14 @@ display:flex;
 align-items:center;
 
 `;
-export default Internacao;
+
+const mapStateToProps = state => ({
+    stateReducer: state.animals
+});
+
+const mapDispatch = dispatch => bindActionCreators({
+    fetchAnimals
+}, dispatch);
+
+
+export default connect(mapStateToProps, mapDispatch)(Animais);
