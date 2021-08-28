@@ -1,7 +1,6 @@
 import React from 'react';
 
 const CardAnimal = ({ data }) => {
-    console.log('data',data)
     const { nome, idade, raca, especie, genero, pelagem, temperamento } = data;
     
     return (
@@ -18,6 +17,7 @@ const CardAnimal = ({ data }) => {
                 <h1>{genero}</h1>
                 <p>{pelagem}</p>
                 <p>{temperamento}</p>
+
             </div>
         </div>
     )

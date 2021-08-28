@@ -27,14 +27,27 @@ const API = axios.create({
 
 export const fetchAnimals = () => {
   return (dispatch) => {
+    dispatch({
+      type: LOAD_ANIMALS
+    });
+
     API.get("/animais")
-      .then(({ data }) => {
+      .then(res => {
+        const { data } = res
         dispatch({
           type: FETCH_ANIMALS,
           payload: data,
         });
+        dispatch({
+          type: SUCESS_ANIMALS
+        })
       })
-      .catch((err) => ({ err }));
+      .catch(() => (
+
+        dispatch({
+          type: ERROR_ANIMALS
+        })
+      ));
   };
 };
 

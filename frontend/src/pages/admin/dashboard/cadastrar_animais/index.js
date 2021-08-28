@@ -65,13 +65,15 @@ function Animais({ fetchAnimals, stateReducer }) {
     const onClick = () => {
         history.push("/dashboard/create_animal")
     }
-    let animais = [];
 
-    useEffect(() => {
-        console.log('fez o fetch')
-        animais = fetchAnimals()
+
+    useEffect(async () => {
+        await fetchAnimals()
     }, [])
 
+    let dados = stateReducer.animals;
+    console.log('animals', dados)
+    console.log(typeof (dados))
     return (
         <Wrapper>
             <Side />
@@ -106,10 +108,9 @@ function Animais({ fetchAnimals, stateReducer }) {
                     light="true"
                 />
                 <div className="Container_Card_Animais">
-                    {animais.map((el) => (
-                        console.log('el' ,el)
-                        //<CardAnimal data={el}></CardAnimal>
-                    ))}
+                    {
+                        dados.length > 0 && dados.map(el => <CardAnimal data={el}></CardAnimal>)
+                    }
                 </div>
             </Container >
         </Wrapper >
