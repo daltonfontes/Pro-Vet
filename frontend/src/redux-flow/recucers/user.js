@@ -53,8 +53,8 @@ const user = (state = initialState, action) => {
     case CREATE_USER: {
       const { payload } = action;
       return {
-       ...state,
-       user: payload,
+        ...state,
+        user: payload,
       };
     }
 

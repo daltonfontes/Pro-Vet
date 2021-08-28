@@ -69,18 +69,18 @@ function CadastrarUsuario({ createUser, stateReducer }) {
     };
 
     useEffect(() => {
-        if(success){
+        if (success) {
             const timer = setTimeout(() => {
                 history.push('/dashboard')
-              }, 1000);
-              return () => clearTimeout(timer);
+            }, 1000);
+            return () => clearTimeout(timer);
         }
-      }, [success]);
-    
+    }, [success]);
+
     return (
         <form onSubmit={onSubmit}>
             <Wrapper>
-                <Side/>
+                <Side />
                 <Container >
                     <Typography
                         className={classes.title}
@@ -188,4 +188,4 @@ const mapDispatch = dispatch => bindActionCreators({
 }, dispatch)
 
 
-export default connect(mapStateToProps, mapDispatch)(CadastrarUsuario);;
+export default connect(mapStateToProps, mapDispatch)(CadastrarUsuario);

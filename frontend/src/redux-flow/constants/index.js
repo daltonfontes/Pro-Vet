@@ -10,3 +10,8 @@ export const FETCH_ANIMALS = 'FETCH_ANIMALS'
 export const SUCESS_ANIMALS = 'SUCESS_ANIMALS'
 export const LOAD_ANIMALS  = 'LOAD_ANIMALS'
 export const ERROR_ANIMALS  = 'ERROR_ANIMALS'
+
+export const CREATE_PESSOA = 'CREATE_PESSOA'
+export const SUCESS_PESSOA = 'SUCESS_PESSOA'
+export const LOAD_PESSOA = 'LOAD_PESSOA'
+export const ERROR_PESSOA  = 'ERROR_PESSOA'
