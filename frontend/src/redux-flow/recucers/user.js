@@ -6,8 +6,11 @@ import {
   CREATE_USER
 } from "../constants";
 
+const userAuthentication = localStorage.getItem("user@authentication") || null
+console.log('userAuthentication',userAuthentication)
+
 const initialState = {
-  user: {},
+  user: userAuthentication ? JSON.parse(userAuthentication) : {} ,
   success: false,
   error: false,
   loading: false,

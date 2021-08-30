@@ -57,7 +57,7 @@ export const userAuthenticate = (data) => {
       type: LOAD_USER
     })
     API.post(`${host}register/authenticate`, { ...data }).then(({ data }) => {
-      console.log('data user authenticate',data)
+      
       dispatch({
         type: AUTHETICATE_USER,
         payload: data
@@ -66,7 +66,7 @@ export const userAuthenticate = (data) => {
         type: SUCCESS_USER
       })
       toast.success("Voce Logou com sucesso")
-
+      localStorage.setItem("user@authentication",JSON.stringify(data))
     }).catch((error) => {
       dispatch({
         type: ERROR_USER

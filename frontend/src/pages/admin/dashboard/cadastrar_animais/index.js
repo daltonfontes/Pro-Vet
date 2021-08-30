@@ -10,7 +10,7 @@ import './style.css';
 import CardAnimal from './cardAnimal';
 import ModalInfo from '../../modal/pessoaModal';
 
-function Animais({ fetchAnimals, stateReducer, stateReducerUser, stateAll }) {
+const Animais = ({ fetchAnimals, stateReducer, stateReducerUser, stateAll }) =>{
 
     const history = useHistory();
 
