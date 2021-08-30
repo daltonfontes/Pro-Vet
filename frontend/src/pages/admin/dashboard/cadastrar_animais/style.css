@@ -5,11 +5,25 @@
     border: 1px solid black;
     align-items: center;
     justify-content: center;
+    overflow: auto;
+
 }
 .Card_Animal{
-    display: flex;
+    display: block;
     width: 200px;
     height: 200px;
     border: 1px solid black;
     margin: 15px;
+    border: 1px solid black;
+}
+.Card_Name{
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.Card_Tipo{
+
+}
+.Card_Info{
+    
 }

@@ -6,10 +6,13 @@ import Internacao from "./pages/admin/dashboard/internacao";
 import CadastrarAnimais from "./pages/admin/dashboard/cadastrar_animais";
 import CadastroAnimal from './pages/admin/dashboard/cadastrar_animais/cadastroAnimal'
 import CadastrarPessoas from './pages/admin/dashboard/cadastrar_pessoas'
+import ModalInfo from './pages/admin/modal/pessoaModal';
 function Routes() {
   return (
     <BrowserRouter>
+    
       <Switch>
+        
         <Route path='/' exact component={Home} />
         <Route path="/dashboard" exact component={Dashboard} />
         <Route path="/dashboard/cadastrar_usuario" exact component={CadastrarUsuario} />

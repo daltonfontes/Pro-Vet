@@ -1,0 +1,12 @@
+.PessoaMadal{
+    position: absolute;
+    border: 1px solid black;
+    border-radius: 10px;
+    width: 200px;
+    height: 80px;
+    top: 15px;
+    right: 15px;
+}
+.PessoaMadal_Info{
+    font-size: 10px;
+}

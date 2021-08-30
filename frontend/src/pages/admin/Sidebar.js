@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom'
 import { SideBar } from '../../components/Sidebar';
 import { Logo } from '../../components/Logo';
 import { Button, Container, Divider, makeStyles, TextField, Typography, Grid } from '@material-ui/core/';
@@ -67,18 +68,20 @@ const Side = () => {
             >
                 Inicio
             </Button>
-            <Button
-                className={classes.font}
-                size="medium"
-                component="button"
-                target="_parent"
-                href="../dashboard/cadastrar_animais"
-                variant="contained"
-                tabIndex="2"
-                startIcon={<PetsIcon />}
-            >
-                Animais
-            </Button>
+            <Link to='/dashboard/cadastrar_animais'>
+                <Button
+                    className={classes.font}
+                    size="medium"
+                    component="button"
+                    target="_parent"
+
+                    variant="contained"
+                    tabIndex="2"
+                    startIcon={<PetsIcon />}
+                >
+                    Atendimento
+                </Button>
+            </Link>
             <Button
                 className={classes.font}
                 size="medium"

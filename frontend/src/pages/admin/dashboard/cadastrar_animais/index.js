@@ -8,8 +8,9 @@ import { bindActionCreators } from "redux"
 import { fetchAnimals } from '../../../../redux-flow/actions';
 import './style.css';
 import CardAnimal from './cardAnimal';
+import ModalInfo from '../../modal/pessoaModal';
 
-function Animais({ fetchAnimals, stateReducer }) {
+function Animais({ fetchAnimals, stateReducer, stateReducerUser, stateAll }) {
 
     const history = useHistory();
 
@@ -72,12 +73,16 @@ function Animais({ fetchAnimals, stateReducer }) {
     }, [])
 
     let dados = stateReducer.animals;
-    console.log('animals', dados)
-    console.log(typeof (dados))
+
+    console.log('stateReducerUser', stateReducerUser)
+    console.log('stateAll', stateAll)
+
     return (
         <Wrapper>
+
             <Side />
             <Container className={classes.container}>
+                <ModalInfo />
                 <Box display="flex" justifyContent="center">
                     <TextField
                         className={classes.search}
@@ -107,7 +112,11 @@ function Animais({ fetchAnimals, stateReducer }) {
                     className={classes.hr}
                     light="true"
                 />
+
                 <div className="Container_Card_Animais">
+                    {
+                        dados.length > 0 && dados.map(el => <CardAnimal data={el}></CardAnimal>)
+                    }
                     {
                         dados.length > 0 && dados.map(el => <CardAnimal data={el}></CardAnimal>)
                     }
@@ -123,7 +132,9 @@ align-items:center;
 `;
 
 const mapStateToProps = state => ({
-    stateReducer: state.animals
+    stateReducer: state.animals,
+    stateReducerUser: state.user,
+    stateAll: state
 });
 
 const mapDispatch = dispatch => bindActionCreators({

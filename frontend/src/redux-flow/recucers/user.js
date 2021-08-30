@@ -20,7 +20,7 @@ const user = (state = initialState, action) => {
       const { payload } = action;
       return {
         ...state,
-        user: payload,
+        ...payload,
       };
     }
 

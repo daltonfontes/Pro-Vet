@@ -10,7 +10,7 @@ import { creatPessoa } from '../../../../redux-flow/actions'
 import Side from '../../Sidebar'
 
 
-const CadastrarPessoas = ({creatPessoa, stateReducer})=> {
+const CadastrarPessoas = ({creatPessoa, stateReducer, stateAll})=> {
 
     const useStyles = makeStyles((theme) => ({
         font: {
@@ -64,7 +64,7 @@ const CadastrarPessoas = ({creatPessoa, stateReducer})=> {
         
     };
 
-    
+    console.log('stateAll',stateAll)
     
     const onSubmit = async (ev) => {
         ev.preventDefault();
@@ -217,7 +217,8 @@ display:flex;
 `;
 
 const mapStateToProps = state => ({
-    stateReducer: state.pessoa
+    stateReducer: state.pessoa,
+    stateAll: state
 });
 
 const mapDispatch = dispatch => bindActionCreators({

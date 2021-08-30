@@ -9,7 +9,7 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from "redux"
 import { createUser } from '../../../../redux-flow/actions';
 
-function CadastrarUsuario({ createUser, stateReducer }) {
+function CadastrarUsuario({ createUser, stateReducer ,stateAll}) {
     const useStyles = makeStyles((theme) => ({
         font: {
             fontFamily: 'Patua One',
@@ -76,7 +76,7 @@ function CadastrarUsuario({ createUser, stateReducer }) {
             return () => clearTimeout(timer);
         }
     }, [success]);
-
+console.log('stateAll',stateAll)
     return (
         <form onSubmit={onSubmit}>
             <Wrapper>
@@ -180,7 +180,8 @@ display:flex;
 `;
 
 const mapStateToProps = state => ({
-    stateReducer: state.user
+    stateReducer: state.user,
+    stateAll: state
 })
 
 const mapDispatch = dispatch => bindActionCreators({

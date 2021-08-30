@@ -57,7 +57,7 @@ export const userAuthenticate = (data) => {
       type: LOAD_USER
     })
     API.post(`${host}register/authenticate`, { ...data }).then(({ data }) => {
-
+      console.log('data user authenticate',data)
       dispatch({
         type: AUTHETICATE_USER,
         payload: data

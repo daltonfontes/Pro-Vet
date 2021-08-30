@@ -59,6 +59,7 @@ function CadastrarAnimais({ creatAnimal, stateReducer }) {
     }));
 
     const [values, setValues] = useState();
+    const [created , setCreated]= useState(false)
     const history = useHistory();
     const { success, loading } = stateReducer;
 
@@ -70,16 +71,17 @@ function CadastrarAnimais({ creatAnimal, stateReducer }) {
     const onSubmit = async (ev) => {
         ev.preventDefault();
         creatAnimal(values)
+        setCreated(true)
     };
 
     useEffect(() => {
-        if (success) {
+        if (created) {
             const timer = setTimeout(() => {
-                history.push('/dashboard')
+                history.push('/dashboard/cadastrar_animais')
             }, 1000);
             return () => clearTimeout(timer);
         }
-    }, [success]);
+    }, [created]);
 
     const classes = useStyles();
     return (
@@ -143,34 +145,54 @@ function CadastrarAnimais({ creatAnimal, stateReducer }) {
                                 onChange={onChange}
                             />
                         </Grid>
+                        
+                        <Grid item xs={3}>
+                            <TextField
+                                className={classes.inputText}
+                                id="pelagem"
+                                name="pelagem"
+                                label="Pelagem"
+                                required
+                                onChange={onChange}
+                            />
+                        </Grid>
 
-                        <Grid item xs={3} >
+                        <Grid item xs={4}>
+                            <TextField
+                                className={classes.inputText}
+                                id="Peso"
+                                name="peso"
+                                label="Peso"
+                                required
+                                onChange={onChange}
+                            />
+                        </Grid>
+                        <Grid item xs={5} >
                             <InputLabel
                                 required
                                 id="sexo"
                                 name="genero"
                                 label="sexo"
-                                fullWidth >Sexo</InputLabel>
+                                 >Sexo</InputLabel>
                             <Select onChange={onChange} name="sexo" defaultValue="" id="grouped-select">
                                 <MenuItem value={'macho'}>Macho </MenuItem>
                                 <MenuItem value={'femea'}>Femea</MenuItem>
                             </Select>
                         </Grid>
 
-                        <Grid item xs={3} >
+                        <Grid item xs={6} >
                             <InputLabel
                                 required
                                 id="temperamento"
                                 name="temperamento"
                                 label="Temperamento"
-                                fullWidth
-                                onChange={onChange}
                             >Temperamento</InputLabel>
                             <Select onChange={onChange} name="temperamento" defaultValue="" id="grouped-select">
                                 <MenuItem value={'calmo'}>Calmo </MenuItem>
                                 <MenuItem value={'bravo'}>Bravo</MenuItem>
                             </Select>
                         </Grid>
+
                         <Grid item spacing={2}>
                             <Button className={classes.button} size="large" type="submit">Confirmar</Button>
                         </Grid>
@@ -183,7 +205,6 @@ function CadastrarAnimais({ creatAnimal, stateReducer }) {
 }
 const Wrapper = styled.div`
 display:flex;
-
 `;
 
 
