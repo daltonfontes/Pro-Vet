@@ -68,20 +68,19 @@ const Side = () => {
             >
                 Inicio
             </Button>
-            <Link to='/dashboard/cadastrar_animais'>
+            <Link to='/dashboard/cadastrar_animais' >
                 <Button
                     className={classes.font}
                     size="medium"
                     component="button"
                     target="_parent"
-
                     variant="contained"
                     tabIndex="2"
                     startIcon={<PetsIcon />}
                 >
                     Atendimento
                 </Button>
-            </Link>
+            </Link >
             <Button
                 className={classes.font}
                 size="medium"
@@ -94,19 +93,7 @@ const Side = () => {
             >
                 Internação
             </Button>
-            <Button
-                className={classes.font}
-                size="medium"
-                component="button"
-                target="_parent"
-                href="../dashboard/cadastrar_usuario"
-                variant="contained"
-                tabIndex="4"
-                startIcon={<PersonAddIcon />}
-            >
-                Cadastrar Usuário
-            </Button>
-
+    
             <Button
                 className={classes.font}
                 size="medium"
@@ -114,12 +101,25 @@ const Side = () => {
                 target="_parent"
                 href="../dashboard/cadastrar_pessoas"
                 variant="contained"
-                tabIndex="5"
+                tabIndex="4"
                 startIcon={<PersonAddIcon />}
             >
                 Cadastrar Pessoas
             </Button>
 
+            <Button
+                className={classes.font}
+                size="medium"
+                component="button"
+                target="_parent"
+                href="../dashboard/cadastrar_usuario"
+                variant="contained"
+                tabIndex="5"
+                startIcon={<PersonAddIcon />}
+            >
+                Cadastrar Usuário
+            </Button>
+            
             <Button
                 className={classes.bottom}
                 size="medium"

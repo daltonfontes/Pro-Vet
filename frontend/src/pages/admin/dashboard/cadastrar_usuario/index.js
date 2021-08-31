@@ -8,7 +8,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { connect } from 'react-redux'
 import { bindActionCreators } from "redux"
 import { createUser } from '../../../../redux-flow/actions';
-
+import PessoaModal from '../../modal/pessoaModal';
 function CadastrarUsuario({ createUser, stateReducer ,stateAll}) {
     const useStyles = makeStyles((theme) => ({
         font: {
@@ -81,6 +81,7 @@ console.log('stateAll',stateAll)
         <form onSubmit={onSubmit}>
             <Wrapper>
                 <Side />
+                <PessoaModal/>
                 <Container >
                     <Typography
                         className={classes.title}

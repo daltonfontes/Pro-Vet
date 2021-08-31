@@ -1,13 +1,10 @@
 import React from 'react';
 import './style.css';
-import { useSelector } from 'react-redux';
 
 
 
 const CardAnimal = ({ data }) => {
 
-    const isLogged = useSelector(state => state.auth.user !== null)
-    
     const { nome, idade, raca, especie, sexo, pelagem, temperamento, peso } = data;
     
     return (

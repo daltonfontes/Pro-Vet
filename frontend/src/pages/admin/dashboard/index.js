@@ -2,7 +2,7 @@ import React from 'react';
 
 import { connect } from 'react-redux'
 import { bindActionCreators } from "redux"
-
+import PessoaModal from '../modal/pessoaModal';
 import styled from 'styled-components';
 import {  makeStyles } from '@material-ui/core/';
 import { userAuthenticate } from '../../../redux-flow/actions'
@@ -25,6 +25,7 @@ function Dashboard({userAuthenticate, data}) {
   const classes = useStyles();
   return (
     <Wrapper>
+      <PessoaModal/>
       <Side/>
     </Wrapper>
   );

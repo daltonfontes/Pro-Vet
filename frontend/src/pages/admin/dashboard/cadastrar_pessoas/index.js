@@ -8,7 +8,7 @@ import { bindActionCreators } from "redux"
 import { ToastContainer, toast } from 'react-toastify';
 import { creatPessoa } from '../../../../redux-flow/actions'
 import Side from '../../Sidebar'
-
+import PessoaModal from '../../modal/pessoaModal'
 
 const CadastrarPessoas = ({creatPessoa, stateReducer, stateAll})=> {
 
@@ -86,23 +86,13 @@ const CadastrarPessoas = ({creatPessoa, stateReducer, stateAll})=> {
         <form onSubmit={onSubmit}>
             <Wrapper>
                 <Side />
+                <PessoaModal/>
                 <Container >
                     <Typography className={classes.title}> Cadastro do Dono</Typography>
                     <Divider className={classes.hr} light="true" />
                     <Grid container spacing={2}>
 
-                        <Grid item xs={3}>
-                            <TextField
-                                className={classes.inputText}
-                                id="sus"
-                                name="sus"
-                                label="Numero do SUS"
-                                required
-                                onChange={onChange}
-                            />
-                        </Grid>
-
-                        <Grid item xs={3}>
+                    <Grid item xs={3}>
                             <TextField
                                 className={classes.inputText}
                                 id="dono"
@@ -127,10 +117,20 @@ const CadastrarPessoas = ({creatPessoa, stateReducer, stateAll})=> {
                         <Grid item xs={3}>
                             <TextField
                                 className={classes.inputText}
+                                id="sus"
+                                name="sus"
+                                label="Numero do SUS"
+                                onChange={onChange}
+                            />
+                        </Grid>
+
+                        <Grid item xs={3}>
+                            <TextField
+                                className={classes.inputText}
                                 id="celular"
                                 name="telefone"
                                 label="Celular"
-                                required
+                                
                                 onChange={onChange}
                             />
                         </Grid>
@@ -141,6 +141,17 @@ const CadastrarPessoas = ({creatPessoa, stateReducer, stateAll})=> {
                                 id="email"
                                 name="email"
                                 label="Email"
+                                
+                                onChange={onChange}
+                            />
+                        </Grid>
+
+                        <Grid item xs={3}>
+                            <TextField
+                                className={classes.inputText}
+                                id="cep"
+                                name="cep"
+                                label="CEP"
                                 required
                                 onChange={onChange}
                             />
@@ -167,7 +178,7 @@ const CadastrarPessoas = ({creatPessoa, stateReducer, stateAll})=> {
                                 onChange={onChange}
                             />
                         </Grid>
-
+                        
                         <Grid item xs={3}>
                             <TextField
                                 className={classes.inputText}

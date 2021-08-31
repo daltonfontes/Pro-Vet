@@ -3,7 +3,7 @@ import React from 'react';
 import styled from 'styled-components';
 import Side from '../../Sidebar'
 import { Container, Divider, Grid, makeStyles, TextField, Typography } from '@material-ui/core/';
-
+import PessoaModal from '../../modal/pessoaModal';
 
 
 
@@ -54,6 +54,7 @@ function CadastrarAnimais() {
     return (
         <Wrapper>
             <Side/>
+            <PessoaModal/>
             <Container component="form">
                 <Typography
                     className={classes.title}

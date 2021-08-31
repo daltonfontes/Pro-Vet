@@ -8,7 +8,7 @@ import { bindActionCreators } from "redux"
 import { fetchAnimals } from '../../../../redux-flow/actions';
 import './style.css';
 import CardAnimal from './cardAnimal';
-import ModalInfo from '../../modal/pessoaModal';
+import PessoaModal from '../../modal/pessoaModal';
 
 const Animais = ({ fetchAnimals, stateReducer, stateReducerUser, stateAll }) =>{
 
@@ -74,15 +74,13 @@ const Animais = ({ fetchAnimals, stateReducer, stateReducerUser, stateAll }) =>{
 
     let dados = stateReducer.animals;
 
-    console.log('stateReducerUser', stateReducerUser)
-    console.log('stateAll', stateAll)
-
+    
     return (
         <Wrapper>
-
+            <PessoaModal/>
             <Side />
             <Container className={classes.container}>
-                <ModalInfo />
+                
                 <Box display="flex" justifyContent="center">
                     <TextField
                         className={classes.search}
@@ -116,10 +114,12 @@ const Animais = ({ fetchAnimals, stateReducer, stateReducerUser, stateAll }) =>{
                 <div className="Container_Card_Animais">
                     {
                         dados.length > 0 && dados.map(el => <CardAnimal data={el}></CardAnimal>)
-                    }
-                    {
+                    } {
+                        dados.length > 0 && dados.map(el => <CardAnimal data={el}></CardAnimal>)
+                    } {
                         dados.length > 0 && dados.map(el => <CardAnimal data={el}></CardAnimal>)
                     }
+                    
                 </div>
             </Container >
         </Wrapper >
