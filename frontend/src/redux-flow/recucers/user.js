@@ -10,7 +10,7 @@ const userAuthentication = localStorage.getItem("user@authentication") || null
 console.log('userAuthentication',userAuthentication)
 
 const initialState = {
-  user: userAuthentication ? JSON.parse(userAuthentication) : {} ,
+  userLog: userAuthentication ? JSON.parse(userAuthentication) : {} ,
   success: false,
   error: false,
   loading: false,
@@ -57,7 +57,7 @@ const user = (state = initialState, action) => {
       const { payload } = action;
       return {
         ...state,
-        user: payload,
+        userLog: payload,
       };
     }
 

@@ -38,7 +38,7 @@ const Animais = ({ fetchAnimals, stateReducer, stateReducerUser, stateAll }) =>{
             borderRadius: '30px',
             border: '2px solid var(--black)',
             fontFamily: 'Patua One'
-        },
+        }, 
         search: {
             width: '645px',
             height: '50px'
@@ -97,7 +97,7 @@ const Animais = ({ fetchAnimals, stateReducer, stateReducerUser, stateAll }) =>{
                         size="small"
                         target="_parent"
                         onClick={onClick}
-                    >Cadastrar Animais</Button>
+                    >Pesquisar</Button>
                 </Box>
                 <Box display="flex" flexDirection="row">
                     <Typography
@@ -114,12 +114,7 @@ const Animais = ({ fetchAnimals, stateReducer, stateReducerUser, stateAll }) =>{
                 <div className="Container_Card_Animais">
                     {
                         dados.length > 0 && dados.map(el => <CardAnimal data={el}></CardAnimal>)
-                    } {
-                        dados.length > 0 && dados.map(el => <CardAnimal data={el}></CardAnimal>)
-                    } {
-                        dados.length > 0 && dados.map(el => <CardAnimal data={el}></CardAnimal>)
-                    }
-                    
+                    } 
                 </div>
             </Container >
         </Wrapper >

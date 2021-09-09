@@ -5,7 +5,7 @@ import Dashboard from './pages/admin/dashboard';
 import CadastrarUsuario from './pages/admin/dashboard/cadastrar_usuario';
 import Internacao from "./pages/admin/dashboard/internacao";
 import CadastrarAnimais from "./pages/admin/dashboard/cadastrar_animais";
-import CadastroAnimal from './pages/admin/dashboard/cadastrar_animais/cadastroAnimal'
+import CadastroAnimal from './pages/admin/dashboard/cadastrar_pessoas/cadastroAnimal'
 import CadastrarPessoas from './pages/admin/dashboard/cadastrar_pessoas'
 import ModalInfo from './pages/admin/modal/pessoaModal';
 import PriveteRoute from './components/PrivateRoute';

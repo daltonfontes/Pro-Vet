@@ -57,17 +57,21 @@ const Side = () => {
     return (
         <SideBar>
             <Logo className='logo-nav' loading='lazy'></Logo>
-            <Button
-                className={classes.font}
-                size="medium"
-                component="button"
-                href="/dashboard"
-                variant="contained"
-                tabIndex="1"
-                startIcon={<HomeIcon />}
-            >
-                Inicio
-            </Button>
+
+            <Link to="/dashboard">
+                <Button
+                    className={classes.font}
+                    size="medium"
+                    component="button"
+                    variant="contained"
+                    tabIndex="1"
+                    startIcon={<HomeIcon />}
+                >
+                    Inicio
+                </Button>
+            </Link>
+
+
             <Link to='/dashboard/cadastrar_animais' >
                 <Button
                     className={classes.font}
@@ -81,56 +85,63 @@ const Side = () => {
                     Atendimento
                 </Button>
             </Link >
-            <Button
-                className={classes.font}
-                size="medium"
-                component="button"
-                href="../dashboard/internacao"
-                target="_parent"
-                variant="contained"
-                tabIndex="3"
-                startIcon={<LocalPharmacyIcon />}
-            >
-                Internação
-            </Button>
-    
-            <Button
-                className={classes.font}
-                size="medium"
-                component="button"
-                target="_parent"
-                href="../dashboard/cadastrar_pessoas"
-                variant="contained"
-                tabIndex="4"
-                startIcon={<PersonAddIcon />}
-            >
-                Cadastrar Pessoas
-            </Button>
 
-            <Button
-                className={classes.font}
-                size="medium"
-                component="button"
-                target="_parent"
-                href="../dashboard/cadastrar_usuario"
-                variant="contained"
-                tabIndex="5"
-                startIcon={<PersonAddIcon />}
-            >
-                Cadastrar Usuário
-            </Button>
-            
-            <Button
-                className={classes.bottom}
-                size="medium"
-                component="button"
-                href="/"
-                variant="contained"
-                tabIndex="6"
-                startIcon={<ExitToAppIcon />}
-            >
-                Sair
-            </Button>
+            <Link to="/dashboard/internacao">
+                <Button
+                    className={classes.font}
+                    size="medium"
+                    component="button"
+                    target="_parent"
+                    variant="contained"
+                    tabIndex="3"
+                    startIcon={<LocalPharmacyIcon />}
+                >
+                    Internação
+                </Button>
+            </Link>
+
+            <Link to="/dashboard/cadastrar_pessoas">
+                <Button
+                    className={classes.font}
+                    size="medium"
+                    component="button"
+                    target="_parent"
+                    variant="contained"
+                    tabIndex="4"
+                    startIcon={<PersonAddIcon />}
+                >
+                    Cadastrar Pessoas
+                </Button>
+            </Link>
+
+            <Link to="/dashboard/cadastrar_usuario">
+                <Button
+                    className={classes.bottom}
+                    size="medium"
+                    component="button"
+                    target="_parent"
+                    
+                    variant="contained"
+                    tabIndex="5"
+                    startIcon={<PersonAddIcon />}
+                >
+                    Cadastrar Usuário
+                </Button>
+            </Link>
+
+            <Link to="/">
+                <Button
+                    className={classes.bottom}
+                    size="medium"
+                    component="button"
+                    variant="contained"
+                    tabIndex="6"
+                    startIcon={<ExitToAppIcon />}
+                >
+                    Sair
+                </Button>
+            </Link>
+
         </SideBar>
     )
 }

@@ -5,10 +5,13 @@ import './style.css'
 
 const PessoaModal = () => {
 
-    const { user } = useSelector(state => state.user)
-    const stateReducer = user
-    const {user:objUser} = stateReducer
-    const {nome, email} =objUser
+    //const { user } = useSelector(state => state.user)
+const { user } = useSelector(state => state)
+const { nome, email } = user.userLog.user
+
+
+
+
 
     return (
         <div className="PessoaMadal">
@@ -23,7 +26,7 @@ const PessoaModal = () => {
 }
 
 const mapStateToProps = state => ({
-    stateReducer: state.user
+    stateReducer: state
 });
 
 export default connect(mapStateToProps)(PessoaModal);

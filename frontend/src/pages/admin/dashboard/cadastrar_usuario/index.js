@@ -67,7 +67,7 @@ function CadastrarUsuario({ createUser, stateReducer ,stateAll}) {
         ev.preventDefault();
         createUser(values)
     };
-
+    
     useEffect(() => {
         if (success) {
             const timer = setTimeout(() => {
